@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable/app_logo.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.197265625" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.18671875" />
+        <entry key="app/src/main/res/layout/activity_forgot_next.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.24895833333333334" />
       </map>
