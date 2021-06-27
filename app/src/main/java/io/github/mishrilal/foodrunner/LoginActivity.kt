@@ -34,11 +34,11 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
 
-//        if (isLoggedIn) {
-//            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        if (isLoggedIn) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         title = "Food Runner"
 
@@ -54,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             if (mobileNumber == validMobileNumber && password == validPassword) {
                 savePreferences()
+                intent.putExtra("MobileNumber", mobileNumber)
+                intent.putExtra("Password", password)
                 startActivity(intent)
                 finish()
             } else {

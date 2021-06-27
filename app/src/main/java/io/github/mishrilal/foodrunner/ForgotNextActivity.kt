@@ -27,7 +27,5 @@ class ForgotNextActivity : AppCompatActivity() {
             txtEmail.text = email
         }
 
-
-
     }
 }
