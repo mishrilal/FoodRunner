@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgotNextActivity"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_margin="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_margin="5dp"
+            android:text="@string/registration_details"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/txtFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:text="@string/enter_full_name"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/txtMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/mobile_number"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:text="@string/email_address"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/address"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:text="@string/password"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

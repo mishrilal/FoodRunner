@@ -1,7 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FoodRunner</string>
     <string name="mobile_number">Mobile Number (10 digits)</string>
-    <string name="password">Enter Password</string>
+    <string name="password">Enter Password (Min. 4 characters)</string>
     <string name="log_in">Login</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="register_yourself"><u>Don\'t have an account? Sign up now</u></string>
@@ -11,9 +11,11 @@
     <string name="preference_file_name">Avengers Preferences</string>
     <string name="log_out">Log Out</string>
     <string name="reset_password">Next</string>
-    <string name="enter_full_name">Enter Full Name</string>
-    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_full_name">Full Name</string>
+    <string name="enter_email_address">Email Address</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Register</string>
+    <string name="address">Delivery Address</string>
     <string name="email_address">Email Address</string>
+    <string name="registration_details"><u>Registration Details</u></string>
 </resources>

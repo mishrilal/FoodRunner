@@ -25,15 +25,15 @@
         android:layout_marginRight="15dp"
         android:background="@color/white"
         android:backgroundTint="@color/edit_bg_color"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="10dp"
         android:hint="@string/mobile_number"
         android:inputType="phone"
         android:maxLength="10"
         android:maxLines="1"
-        android:padding="6dp"
+        android:padding="10dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/edit_text_color"
-        android:drawableStart="@drawable/phone"
-        android:drawablePadding="10dp"/>
+        android:textColorHint="@color/edit_text_color" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -46,7 +46,7 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:padding="6dp"
+        android:padding="10dp"
         android:backgroundTint="@color/edit_bg_color"
         android:background="@color/white"
         android:textColor="@color/black"

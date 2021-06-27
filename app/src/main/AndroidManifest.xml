@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodRunner">
         <activity
+            android:name=".RegisterNewActivity"
+            android:exported="true" />
+        <activity
             android:name=".ForgotNextActivity"
             android:exported="true" />
         <activity
