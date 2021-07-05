@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_favourite_restaurants.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/menu/menu_drawer.xml" value="0.24895833333333334" />
       </map>
     </option>
