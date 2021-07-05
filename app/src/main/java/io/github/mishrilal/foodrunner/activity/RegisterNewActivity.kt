@@ -1,8 +1,9 @@
-package io.github.mishrilal.foodrunner
+package io.github.mishrilal.foodrunner.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import io.github.mishrilal.foodrunner.R
 
 class RegisterNewActivity : AppCompatActivity() {
 
