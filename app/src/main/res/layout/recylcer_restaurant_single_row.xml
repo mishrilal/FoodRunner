@@ -18,7 +18,7 @@
         android:weightSum="6">
 
         <ImageView
-            android:id="@+id/imgBookImage"
+            android:id="@+id/imgResImage"
             android:layout_width="0dp"
             android:layout_height="110dp"
             android:layout_weight="1.8"
@@ -33,18 +33,18 @@
             android:layout_weight="3.7">
 
             <TextView
-                android:id="@+id/txtDishName"
+                android:id="@+id/txtResName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:padding="8dp"
-                android:text="Name of Dish"
+                android:text="Name of Restaurant"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txtDishPrice"
+                android:id="@+id/txtResPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -60,7 +60,7 @@
             android:layout_weight="0.5">
 
             <ImageView
-                android:id="@+id/imgDishFav"
+                android:id="@+id/imgResFav"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:src="@drawable/ic_fav_red_outline" />
 
             <TextView
-                android:id="@+id/txtDishRating"
+                android:id="@+id/txtResRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
