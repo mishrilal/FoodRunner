@@ -42,9 +42,13 @@ class MainActivity : AppCompatActivity() {
     /*The action bar drawer toggle is used to handle the open and close events of the navigation drawer*/
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
+    lateinit var sharedPreferences: SharedPreferences
+
     /*Life-cycle method of the activity*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
 
         /*Linking a view to the activity*/
         setContentView(R.layout.activity_main)
@@ -129,13 +133,17 @@ class MainActivity : AppCompatActivity() {
                         .setMessage("Are you sure you want exit?")
                         .setPositiveButton("Yes") { _, _ ->
                             ActivityCompat.finishAffinity(this)
+                            val logoutIntent = Intent(this@MainActivity, LoginActivity::class.java)
+                            drawerLayout.closeDrawers()
+                            startActivity(logoutIntent)
+                            sharedPreferences.edit().clear().apply()
+                            finish()
                         }
                         .setNegativeButton("No") { _, _ ->
                             displayHome()
                         }
                         .create()
                         .show()
-
                 }
 
             }
