@@ -10,4 +10,9 @@
     <color name="background">#2e2f31</color>
     <color name="edit_text_color">#958B8B</color>
     <color name="edit_bg_color">#BEFFFFFF</color>
+    <color name="colorPrimary">#ff5039</color>
+    <color name="colorPrimaryDark">#ee2732</color>
+    <color name="colorPrimaryLight">#ff5039</color>
+    <color name="colorAccent">#cb202d</color>
+    <color name="cart_button">#4CAF50</color>
 </resources>

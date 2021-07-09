@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRestaurant"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:background="#ffffff"
-    android:layout_margin="6dp"
-    app:cardCornerRadius="4dp">
-
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="6dp">
 
     <LinearLayout
-        android:id="@+id/llContent"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#ffffff"
-        android:orientation="horizontal"
-        android:weightSum="6">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imgResImage"
-            android:layout_width="0dp"
-            android:layout_height="110dp"
-            android:layout_weight="1.8"
-            android:padding="5dp"
+            android:id="@+id/imgRestaurantThumbnail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="8dp"
+            android:background="@drawable/res_image_background"
             android:scaleType="centerCrop"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_default_res" />
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="3.7">
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="12dp">
 
-            <TextView
-                android:id="@+id/txtResName"
+            <RelativeLayout
+                android:id="@+id/rlOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:text="Name of Restaurant"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18sp" />
+                android:layout_marginBottom="12dp">
 
-            <TextView
-                android:id="@+id/txtResPrice"
+                <TextView
+                    android:id="@+id/txtRestaurantName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/imgIsFav"
+                    android:padding="4dp"
+                    android:text="@string/restaurant_name"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:id="@+id/imgIsFav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="2dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_fav_red_outline" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:padding="8dp"
-                android:layout_marginBottom="20dp"
-                android:text="Rs. 299/person"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_below="@+id/rlOne"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/txtCostForTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:padding="4dp"
+                    android:text="Rs. 300/person"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/txtRestaurantRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="2dp"
+                    android:padding="8dp"
+                    android:text="4.7"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffc107"
+                    android:textStyle="bold" />
+            </RelativeLayout>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5">
-
-            <ImageView
-                android:id="@+id/imgResFav"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:padding="4dp"
-                android:src="@drawable/ic_fav_red_outline" />
-
-            <TextView
-                android:id="@+id/txtResRating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
-                android:padding="4dp"
-                android:layout_centerHorizontal="true"
-                android:text="4.5"
-                android:textColor="#ffca28"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-        </RelativeLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
