@@ -77,4 +77,8 @@ class LoginActivity : AppCompatActivity() {
     fun savePreferences() {
         sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
     }
+
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }

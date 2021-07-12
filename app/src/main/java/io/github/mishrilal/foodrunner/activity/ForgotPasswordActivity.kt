@@ -38,6 +38,11 @@ class ForgotPasswordActivity : AppCompatActivity() {
             finish()
         }
 
+        toolbar.setNavigationOnClickListener{
+            startActivity(Intent(this@ForgotPasswordActivity, LoginActivity::class.java))
+            finishAffinity()
+        }
+
     }
 
     private fun setupToolbar() {

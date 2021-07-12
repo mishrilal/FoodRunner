@@ -79,6 +79,11 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        toolbar.setNavigationOnClickListener {
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+            finishAffinity()
+        }
     }
 
     private fun setupToolbar() {
