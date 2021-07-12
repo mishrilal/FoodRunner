@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/colorPrimary"
     tools:context=".activity.LoginActivity">
 
     <ImageView
@@ -15,74 +15,80 @@
         android:layout_marginTop="70dp"
         android:src="@drawable/app_logo" />
 
-    <EditText
-        android:id="@+id/etMobileNumber"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgLogo"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="15dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/edit_bg_color"
-        android:drawableStart="@drawable/phone"
-        android:drawablePadding="10dp"
-        android:hint="@string/mobile_number"
-        android:inputType="phone"
-        android:maxLength="10"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/edit_text_color" />
+        android:layout_centerInParent="true">
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etMobileNumber"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:backgroundTint="@color/edit_bg_color"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textColorHint="@color/edit_text_color"
-        android:drawableStart="@drawable/lock"
-        android:drawablePadding="10dp"/>
-
-    <Button
-        android:id="@+id/btnLogin"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:background="@color/teal_700"
-        android:padding="6dp"
-        android:text="@string/log_in"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="false"/>
+        <EditText
+            android:id="@+id/etMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorBackground"
+            android:backgroundTint="@color/colorBackground"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:hint="@string/mobile_number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
 
-    <TextView
-        android:id="@+id/txtForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:padding="6dp"
-        android:text="@string/forgot_password"
-        android:textColor="@color/edit_text_color"
-        android:textSize="16sp" />
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etMobileNumber"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/colorBackground"
+            android:backgroundTint="@color/colorBackground"
+            android:drawableStart="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etPassword"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/teal_700"
+            android:padding="6dp"
+            android:text="@string/log_in"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/colorSecondary"
+            android:textSize="16sp" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txtRegister"
@@ -93,7 +99,7 @@
         android:layout_marginBottom="10dp"
         android:padding="6dp"
         android:text="@string/register_yourself"
-        android:textColor="@color/edit_text_color"
+        android:textColor="@color/colorSecondary"
         android:textSize="16sp" />
 
 </RelativeLayout>
