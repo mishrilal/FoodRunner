@@ -4,12 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.RegisterActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    tools:context=".activity.RegisterActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -20,10 +29,11 @@
             android:id="@+id/etFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/person"
             android:drawablePadding="10dp"
@@ -32,7 +42,6 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -40,10 +49,11 @@
             android:id="@+id/etMobileNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/phone"
             android:drawablePadding="10dp"
@@ -53,7 +63,6 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -61,10 +70,11 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/email"
             android:drawablePadding="10dp"
@@ -73,7 +83,6 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -81,10 +90,11 @@
             android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/location"
             android:drawablePadding="10dp"
@@ -93,7 +103,6 @@
             android:maxLines="5"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -101,10 +110,11 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
@@ -114,7 +124,6 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -123,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:background="@color/colorBackground"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
@@ -132,7 +142,6 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/colorBackground"
             android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
@@ -143,9 +152,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/register"
         android:background="@color/teal_700"
+        android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 </RelativeLayout>

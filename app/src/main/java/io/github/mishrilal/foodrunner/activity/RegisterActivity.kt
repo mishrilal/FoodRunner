@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import io.github.mishrilal.foodrunner.R
 
 class RegisterActivity : AppCompatActivity() {
@@ -17,12 +18,13 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var etPassword: EditText
     lateinit var etConfirmPassword: EditText
     lateinit var btnRegister: Button
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        title = "Register Yourself"
+        setupToolbar()
 
         etFullName = findViewById(R.id.etFullName)
         etMobileNumber = findViewById(R.id.etMobileNumber)
@@ -78,4 +80,13 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun setupToolbar() {
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Register Yourself"
+    }
+
 }
