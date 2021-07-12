@@ -37,7 +37,7 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/colorPrimary" />
 
 
         <EditText
@@ -57,7 +57,7 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/colorPrimary" />
 
         <Button
             android:id="@+id/btnLogin"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.RegisterActivity"
-    android:background="@color/background">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/person"
             android:drawablePadding="10dp"
             android:hint="@string/enter_full_name"
@@ -32,8 +32,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
         <EditText
@@ -44,7 +44,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/phone"
             android:drawablePadding="10dp"
             android:hint="@string/mobile_number"
@@ -53,8 +53,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
         <EditText
@@ -65,7 +65,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/email"
             android:drawablePadding="10dp"
             android:hint="@string/enter_email_address"
@@ -73,8 +73,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/location"
             android:drawablePadding="10dp"
             android:hint="@string/address"
@@ -93,8 +93,8 @@
             android:maxLines="5"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
         <EditText
@@ -105,7 +105,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="15dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/password"
@@ -114,8 +114,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
         <EditText
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:backgroundTint="@color/edit_bg_color"
+            android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/confirm_password"
@@ -132,8 +132,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:background="@color/edit_bg_color"
-            android:textColorHint="@color/edit_text_color"
+            android:background="@color/colorBackground"
+            android:textColorHint="@color/colorPrimary"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -143,9 +143,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
         android:text="@string/register"
         android:background="@color/teal_700"
         android:textColor="@color/white"
