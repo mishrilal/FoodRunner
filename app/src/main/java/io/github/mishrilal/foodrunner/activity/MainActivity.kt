@@ -126,7 +126,6 @@ class MainActivity : AppCompatActivity() {
 
                 /*Exiting the application*/
                 R.id.logout -> {
-
                     /*Creating a confirmation dialog*/
                     val builder = AlertDialog.Builder(this@MainActivity)
                     builder.setTitle("Confirmation")
@@ -140,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                             finish()
                         }
                         .setNegativeButton("No") { _, _ ->
-                            displayHome()
+                            // TODO: Remove ItemSelected and set to Previous Item
                         }
                         .create()
                         .show()

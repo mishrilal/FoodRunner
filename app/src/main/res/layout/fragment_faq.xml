@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:text="Q.1 How will the training be delivered?"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
 
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Q.2 What will be the timings of the training?"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="Q.3 What is the duration of training?"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
 
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:text="Q.4 How much time should I spend everyday?"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
 
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:text="Q.5 When can I start my training?"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
 
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="Q.6 When will I get the certificate?"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorSecondary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:padding="10dp"/>
 

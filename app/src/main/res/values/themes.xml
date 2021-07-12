@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.FoodRunner" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#1E1D1D</item>
-        <item name="colorPrimaryVariant">@color/background</item>
-        <item name="colorOnPrimary">#1E1D1D</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorBackground</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
