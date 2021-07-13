@@ -210,4 +210,24 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    fun openHome(){
+        val fragment = HomeFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame, fragment)
+        transaction.commit()
+
+        supportActionBar?.title = "All Restaurants"
+        navigationView.setCheckedItem(R.id.home)
+    }
+
+    override fun onBackPressed() {
+        val frag = supportFragmentManager.findFragmentById(R.id.frame)
+
+        when(frag) {
+            !is HomeFragment -> openHome()
+
+            else -> super.onBackPressed()
+        }
+    }
 }

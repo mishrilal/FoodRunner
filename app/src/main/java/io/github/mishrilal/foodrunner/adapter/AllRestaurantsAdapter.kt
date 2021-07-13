@@ -1,6 +1,7 @@
 package io.github.mishrilal.foodrunner.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Build
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.squareup.picasso.Picasso
 import io.github.mishrilal.foodrunner.R
+import io.github.mishrilal.foodrunner.activity.RestaurantDetailsActivity
 import io.github.mishrilal.foodrunner.database.RestaurantDatabase
 import io.github.mishrilal.foodrunner.database.RestaurantEntity
 import io.github.mishrilal.foodrunner.model.Restaurants
@@ -87,6 +89,10 @@ class AllRestaurantsAdapter(private var restaurants: ArrayList<Restaurants>, val
         p0.cardRestaurant.setOnClickListener {
             Toast.makeText(context, "Clicked on: ${p0.restaurantName.text}", Toast.LENGTH_SHORT)
                 .show()
+            val intent = Intent(context, RestaurantDetailsActivity::class.java)
+            intent.putExtra("title", resObject.name)
+            intent.putExtra("id", resObject.id)
+            context.startActivity(intent)
         }
     }
 
