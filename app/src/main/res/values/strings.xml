@@ -78,6 +78,7 @@
     <string name="order_history_static_text">Your previous orders are listed below :</string>
     <string name="dummy_date">20/12/2018</string>
     <string name="logout">LogOut</string>
+    <string name="proceed_to_cart">Proceed to Cart</string>
     <array name="filters">
         <item>Cost(Low to High)</item>
         <item>Cost(High to Low)</item>

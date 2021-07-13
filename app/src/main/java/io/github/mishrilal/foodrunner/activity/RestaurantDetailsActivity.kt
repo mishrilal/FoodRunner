@@ -22,7 +22,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
 
         init()
         setupToolbar()
-        txtResDetailID.text = intent.getIntExtra("id", 0).toString()
+//        txtResDetailID.text = intent.getIntExtra("id", 0).toString()
 
         toolbar.setNavigationOnClickListener{
             finish()
@@ -30,7 +30,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        txtResDetailID = findViewById(R.id.txtResDetailID)
+//        txtResDetailID = findViewById(R.id.txtResDetailID)
         toolbar = findViewById(R.id.toolbar)
     }
 
