@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">FoodRunner</string>
+    <string name="app_name">Food<u>Runner</u></string>
     <string name="Rs">\u20B9200/person</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="password">Enter Password (Min. 4 characters)</string>
@@ -16,7 +16,7 @@
     <string name="enter_email_address">Email Address</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Register</string>
-    <string name="address">Delivery Address</string>
+    <string name="address">New Delhi</string>
     <string name="email_address">Email Address</string>
     <string name="registration_details"><u>Registration Details</u></string>
     <string name="login_details"><u>Login Details</u></string>
@@ -35,7 +35,7 @@
     <string name="openDrawer">Navigation View Closed</string>
     <string name="filter">Filter</string>
     <string name="restaurant_name">Restaurant</string>
-    <string name="name">Name</string>
+    <string name="name">John Doe</string>
     <string name="phone">Phone</string>
     <string name="profile_details">Your Profile Details are listed below:</string>
     <string name="go_to_cart">Proceed to Cart</string>
@@ -45,7 +45,7 @@
     <string name="favorites">Favorite Restaurants</string>
     <string name="channel_name">Android Training</string>
     <string name="channel_description">This notification confirms that the order is placed</string>
-    <string name="dummy_phone">+91-1234567890</string>
+    <string name="dummy_phone">+91-1115555555</string>
     <string name="empty_cart">Your cart is currently empty</string>
     <string name="no_favorites">You do not have any favorite restaurants</string>
     <string name="no_orders">You haven\'t placed any orders yet</string>
@@ -67,7 +67,7 @@
     <string name="faq_answer_six">A.6 You will be able to download the certificate once you complete your training and
         take the final test.
     </string>
-    <string name="email">Email Address</string>
+    <string name="email">johndoe@doe.gmail.com</string>
     <string name="enter_mobile_forgot_password">Enter your registered mobile number and email below:</string>
     <string name="next">Next</string>
     <string name="enter_otp">Enter the received OTP below</string>

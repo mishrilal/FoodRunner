@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:padding="4dp">
 
         <ImageView
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUserImage"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="10dp"
             android:orientation="vertical"
             android:padding="4dp">
@@ -42,7 +42,7 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
 
             <TextView
@@ -55,7 +55,7 @@
                 android:text="@string/dummy_phone"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/txtEmail"
@@ -67,7 +67,7 @@
                 android:text="@string/email"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/txtAddress"
@@ -80,7 +80,7 @@
                 android:text="@string/address"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </RelativeLayout>
 
