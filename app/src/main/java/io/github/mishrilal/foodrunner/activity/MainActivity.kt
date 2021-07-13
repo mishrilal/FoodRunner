@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                             finish()
                         }
                         .setNegativeButton("No") { _, _ ->
-                            // TODO: Remove ItemSelected and set to Previous Item
+                            displayHome()
                         }
                         .create()
                         .show()
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun openHome(){
+    private fun openHome(){
         val fragment = HomeFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)

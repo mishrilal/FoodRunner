@@ -10,19 +10,23 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_log_out.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/app_logo.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/drawable/drawer_list_selector.xml" value="0.22927927927927927" />
         <entry key="app/src/main/res/drawable/email.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_local_cafe_24.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/img_bg_cart.xml" value="0.22927927927927927" />
+        <entry key="app/src/main/res/drawable/img_bg_cart_green.xml" value="0.22927927927927927" />
         <entry key="app/src/main/res/drawable/img_bg_cart_red.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/light_gray_color.xml" value="0.22927927927927927" />
         <entry key="app/src/main/res/drawable/lock.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/drawable/person.xml" value="0.1037037037037037" />
         <entry key="app/src/main/res/drawable/phone.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/drawable/red_color.xml" value="0.22927927927927927" />
         <entry key="app/src/main/res/drawable/res_image_background.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/rupee_indian.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/text_boundary_background.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/layout-v28/recycler_res_details_single_row.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/layout-v28/recycler_res_details_single_row.xml" value="0.2283803153368371" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.197265625" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.18671875" />
         <entry key="app/src/main/res/layout/activity_forgot_next.xml" value="0.24895833333333334" />
@@ -41,6 +45,7 @@
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/recycler_res_details_single_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/menu/drawer_item.xml" value="0.20315315315315316" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/menu/menu_drawer.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1287037037037037" />
