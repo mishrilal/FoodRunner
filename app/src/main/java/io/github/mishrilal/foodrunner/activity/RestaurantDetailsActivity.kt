@@ -19,8 +19,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import io.github.mishrilal.foodrunner.R
+import io.github.mishrilal.foodrunner.adapter.AllRestaurantsAdapter
 import io.github.mishrilal.foodrunner.adapter.AllRestaurantsAdapter.GetAllFavAsyncTask
 import io.github.mishrilal.foodrunner.adapter.ResDetailRecyclerAdapter
+import io.github.mishrilal.foodrunner.database.RestaurantEntity
 import io.github.mishrilal.foodrunner.model.RestaurantsDetails
 import io.github.mishrilal.foodrunner.util.ConnectionManager
 
@@ -71,10 +73,9 @@ class RestaurantDetailsActivity : AppCompatActivity() {
             val listOfFav = GetAllFavAsyncTask(this).execute().get()
 
             if (listOfFav.isNotEmpty() && listOfFav.contains(restaurantId)) {
-                //TODO: Correct Padding i.e., Size of image
-                imgResIsFav.setBackgroundResource(R.drawable.ic_fav_red_filled)
+                imgResIsFav.setImageResource(R.drawable.ic_fav_red_filled)
             } else {
-                imgResIsFav.setBackgroundResource(R.drawable.ic_fav_red_outline)
+                imgResIsFav.setImageResource(R.drawable.ic_fav_red_outline)
             }
         } else {
             finish()
@@ -91,6 +92,37 @@ class RestaurantDetailsActivity : AppCompatActivity() {
                 "Some unexpected Error occurred!",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+
+        imgResIsFav.setOnClickListener {
+            if(intent != null) {
+
+                val restaurantEntity = RestaurantEntity(
+                    intent.getIntExtra("id", 100),
+                    intent.getStringExtra("name")!!,
+                    intent.getStringExtra("rating")!!,
+                    intent.getStringExtra("cost")!!,
+                    intent.getStringExtra("image_url")!!
+                )
+
+
+                if (!AllRestaurantsAdapter.DBAsyncTask(this, restaurantEntity, 1).execute().get()) {
+                    val async =
+                        AllRestaurantsAdapter.DBAsyncTask(this, restaurantEntity, 2).execute()
+                    val result = async.get()
+                    if (result) {
+                        imgResIsFav.setImageResource(R.drawable.ic_fav_red_filled)
+                    }
+                } else {
+                    val async =
+                        AllRestaurantsAdapter.DBAsyncTask(this, restaurantEntity, 3).execute()
+                    val result = async.get()
+
+                    if (result) {
+                        imgResIsFav.setImageResource(R.drawable.ic_fav_red_outline)
+                    }
+                }
+            }
         }
 
         val queue = Volley.newRequestQueue(this@RestaurantDetailsActivity)
@@ -191,7 +223,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
             dialog.show()
         }
 
-        toolbar.setNavigationOnClickListener {
+        toolbar.setNavigationOnClickListener() {
             finish()
         }
     }
