@@ -8,4 +8,6 @@ abstract class RestaurantDatabase : RoomDatabase() {
 
     abstract fun restaurantDao(): RestaurantDao
 
+    abstract fun orderDao(): OrderDao
+
 }

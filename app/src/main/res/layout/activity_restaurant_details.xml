@@ -19,6 +19,16 @@
             android:background="?attr/colorPrimary"
             app:titleTextColor="@color/white" />
 
+        <RelativeLayout
+            android:id="@+id/progressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/txtMenuTitle"
@@ -33,13 +43,12 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imgFav"
+            android:id="@+id/imgResIsFav"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@+id/toolbar"
             android:layout_alignParentEnd="true"
-            android:padding="10dp"
-            android:src="@drawable/ic_fav_red_outline" />
+            android:padding="10dp" />
 
 
         <View
@@ -57,8 +66,7 @@
             android:layout_below="@id/viewDivider"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginEnd="5dp" />
 
         <Button
             android:id="@+id/btnCart"
@@ -70,6 +78,7 @@
             android:text="@string/proceed_to_cart"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:visibility="gone"
             android:textStyle="bold"
             app:backgroundTint="@color/colorSecondary" />
     </RelativeLayout>

@@ -90,7 +90,7 @@ class AllRestaurantsAdapter(private var restaurants: ArrayList<Restaurants>, val
             Toast.makeText(context, "Clicked on: ${p0.restaurantName.text}", Toast.LENGTH_SHORT)
                 .show()
             val intent = Intent(context, RestaurantDetailsActivity::class.java)
-            intent.putExtra("title", resObject.name)
+            intent.putExtra("name", resObject.name)
             intent.putExtra("id", resObject.id)
             context.startActivity(intent)
         }
