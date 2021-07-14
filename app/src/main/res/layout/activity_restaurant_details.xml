@@ -66,9 +66,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/colorSecondary"
+            android:backgroundTint="@color/colorSecondary"
             android:text="@string/proceed_to_cart"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorSecondary" />
     </RelativeLayout>
 </FrameLayout>
