@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
 
     var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-    var mobilePattern = "[7-9][0-9]{9}"
+    var mobilePattern = "[6-9][0-9]{9}"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,13 +150,13 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Successfully Registered",
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_SHORT
                 )
                     .show()
                 startActivity(intent)
+                finish()
             }
         }
-
 
 
         toolbar.setNavigationOnClickListener {
@@ -190,32 +190,32 @@ class RegisterActivity : AppCompatActivity() {
                 Response.Listener {
 
                     try {
-                        val obj = it.getJSONObject("data")
-                        val success = obj.getBoolean("success")
+                        val data = it.getJSONObject("data")
+                        val success = data.getBoolean("success")
                         if (success) {
-                            val response = obj.getJSONObject("data")
+
+                            val response = data.getJSONObject("data")
                             sharedPreferences.edit()
                                 .putString("user_id", response.getString("user_id"))
                                 .apply()
                             sharedPreferences.edit()
                                 .putString("user_name", response.getString("name"))
                                 .apply()
+                            sharedPreferences.edit().putString(
+                                "user_mobile_number",
+                                response.getString("mobile_number")
+                            ).apply()
                             sharedPreferences.edit()
                                 .putString(
-                                    "user_mobile_number",
-                                    response.getString("mobile_number")
+                                    "user_address",
+                                    response.getString("address")
                                 )
                                 .apply()
                             sharedPreferences.edit()
-                                .putString("user_address", response.getString("address")).apply()
-                            sharedPreferences.edit()
-                                .putString("user_email", response.getString("email")).apply()
+                                .putString("user_email", response.getString("email"))
+                                .apply()
 
                             savePreferences()
-                            startActivity(
-                                Intent(this@RegisterActivity, MainActivity::class.java)
-                            )
-                            finish()
                         } else {
 //                            rlRegister.visibility = View.VISIBLE
                             //progressBar.visibility=View.INVISIBLE

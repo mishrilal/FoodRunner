@@ -6,9 +6,11 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
@@ -22,77 +24,61 @@ import io.github.mishrilal.foodrunner.fragment.FaqFragment
 import io.github.mishrilal.foodrunner.fragment.FavouritesFragment
 import io.github.mishrilal.foodrunner.fragment.HomeFragment
 import io.github.mishrilal.foodrunner.fragment.MyProfileFragment
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
-    /*Defining the variables used in the activity*/
-
-    /*This variable will be used for the toolbar which will hold the different titles*/
     private lateinit var toolbar: Toolbar
-
-    /*This is the native layout for this activity as it holds the navigation drawer*/
     private lateinit var drawerLayout: DrawerLayout
-
-    /*This is the view used to make the navigation drawer*/
     private lateinit var navigationView: NavigationView
-
-    /*This variable is used as a flag to keep a check as to which menu item inside the navigation drawer is checked*/
     private var previousMenuItem: MenuItem? = null
-
-    /*The action bar drawer toggle is used to handle the open and close events of the navigation drawer*/
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     lateinit var sharedPreferences: SharedPreferences
 
-    /*Life-cycle method of the activity*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
-
-        /*Linking a view to the activity*/
         setContentView(R.layout.activity_main)
 
-        /*Created by us to handle the initialisation of variables*/
         init()
-
-        /*This method is also user created to setup the toolbar*/
         setupToolbar()
-
-        /*User created method to handle the action bar drawer toogle*/
         setupActionBarToggle()
-
-        /*This is method is created to display the home fragment inside the activity by default*/
         displayHome()
 
-        /*Below we handle the click listeners of the menu items inside the navigation drawer*/
+        sharedPreferences =
+            getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
+        val view =
+            LayoutInflater.from(this@MainActivity).inflate(R.layout.drawer_header, null)
+
+        val userName: TextView = view.findViewById(R.id.txtUserFullName)
+        val userPhone: TextView = view.findViewById(R.id.txtUserPhone)
+
+
+        userName.text = sharedPreferences.getString("user_name", null)
+        val phone = "+91-${sharedPreferences.getString("user_mobile_number", null)}"
+        userPhone.text = phone
+        navigationView.addHeaderView(view)
+
         navigationView.setNavigationItemSelectedListener { item: MenuItem ->
 
-            /*Unchecking the previous menu item when a new item is clicked*/
             if (previousMenuItem != null) {
                 previousMenuItem?.isChecked = false
             }
 
-            /*Highlighting the new menu item, the one which is clicked*/
             item.isCheckable = true
             item.isChecked = true
 
-            /*This sets the value of previous menu item as the current one*/
             previousMenuItem = item
 
 
-            /*The closing of navigation drawer is delayed to make the transition smooth
-            * We delay it by 0.1 second*/
             val mPendingRunnable = Runnable { drawerLayout.closeDrawer(GravityCompat.START) }
             Handler().postDelayed(mPendingRunnable, 100)
 
-            /*The fragment transaction takes care of the different fragments which will be opened and closed*/
             val fragmentTransaction = supportFragmentManager.beginTransaction()
 
-            /*Getting the id of the clicked item to identify which fragment to display*/
             when (item.itemId) {
 
-                /*Opening the home fragment*/
                 R.id.home -> {
                     val homeFragment = HomeFragment()
                     fragmentTransaction.replace(R.id.frame, homeFragment)
@@ -100,7 +86,6 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "All Restaurants"
                 }
 
-                /*Opening the profile fragment*/
                 R.id.myProfile -> {
                     val profileFragment = MyProfileFragment()
                     fragmentTransaction.replace(R.id.frame, profileFragment)
@@ -108,7 +93,6 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "My profile"
                 }
 
-                /*Opening the favorites fragment*/
                 R.id.favRes -> {
                     val favFragment = FavouritesFragment()
                     fragmentTransaction.replace(R.id.frame, favFragment)
@@ -116,7 +100,6 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Favorite Restaurants"
                 }
 
-                /*Opening the frequently asked questions i.e. FAQ fragment*/
                 R.id.faqs -> {
                     val faqFragment = FaqFragment()
                     fragmentTransaction.replace(R.id.frame, faqFragment)
@@ -124,9 +107,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Frequently Asked Questions"
                 }
 
-                /*Exiting the application*/
                 R.id.logout -> {
-                    /*Creating a confirmation dialog*/
                     val builder = AlertDialog.Builder(this@MainActivity)
                     builder.setTitle("Confirmation")
                         .setMessage("Are you sure you want exit?")
@@ -151,7 +132,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    /*This is method is created to display the home fragment*/
     private fun displayHome() {
         val fragment = HomeFragment()
         val transaction = supportFragmentManager.beginTransaction()
@@ -181,15 +161,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-        /*Adding the drawer toggle to the drawer layout*/
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
 
-        /*This handles the animation of the hamburger icon when the drawer is opened/closed*/
         actionBarDrawerToggle.syncState()
 
     }
 
     private fun setupToolbar() {
+
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -204,14 +183,13 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        /*This is done to open the navigation drawer when the hamburger icon is clicked*/
         if (item?.itemId == android.R.id.home) {
             drawerLayout.openDrawer(GravityCompat.START)
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun openHome(){
+    private fun openHome() {
         val fragment = HomeFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
@@ -224,7 +202,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val frag = supportFragmentManager.findFragmentById(R.id.frame)
 
-        when(frag) {
+        when (frag) {
             !is HomeFragment -> openHome()
 
             else -> super.onBackPressed()
