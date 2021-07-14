@@ -31,11 +31,11 @@
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.18671875" />
         <entry key="app/src/main/res/layout/activity_forgot_next.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.21244444444444444" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_register_new.xml" value="0.24895833333333334" />
-        <entry key="app/src/main/res/layout/activity_restaurant_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_restaurant_details.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/drawer_header.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/fragment_faq.xml" value="0.24895833333333334" />
