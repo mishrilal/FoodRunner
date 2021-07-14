@@ -7,6 +7,7 @@
     android:background="@color/colorPrimary"
     tools:context=".activity.RegisterActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -14,6 +15,15 @@
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         app:titleTextColor="@color/white" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarLogin"
+        android:indeterminate="true"
+        android:background="@color/colorSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +43,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/person"
             android:drawablePadding="10dp"
@@ -53,7 +63,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/phone"
             android:drawablePadding="10dp"
@@ -74,7 +84,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/email"
             android:drawablePadding="10dp"
@@ -94,7 +104,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/location"
             android:drawablePadding="10dp"
@@ -114,7 +124,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
@@ -132,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"

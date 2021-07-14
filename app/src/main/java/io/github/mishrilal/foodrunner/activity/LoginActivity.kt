@@ -7,10 +7,9 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.android.volley.Request
 import com.android.volley.Response
@@ -28,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var txtForgotPassword: TextView
     lateinit var txtRegister: TextView
     lateinit var btnLogin: Button
+    lateinit var progressBarLogin: ProgressBar
 
     private val validMobileNumber = "1234567890"
     private val validPassword = "password"
@@ -59,8 +59,12 @@ class LoginActivity : AppCompatActivity() {
         txtForgotPassword = findViewById(R.id.txtForgotPassword)
         txtRegister = findViewById(R.id.txtRegister)
         btnLogin = findViewById(R.id.btnLogin)
+        progressBarLogin= findViewById(R.id.progressBarLogin)
 
         btnLogin.setOnClickListener {
+            progressBarLogin.visibility= View.VISIBLE
+            etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+
             val mobileNumber = etMobileNumber.text.toString()
             val password = etPassword.text.toString()
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
@@ -110,9 +114,11 @@ class LoginActivity : AppCompatActivity() {
                                             .apply()
 
                                         savePreferences()
+                                        progressBarLogin.visibility= View.GONE
                                         startActivity(intent)
                                         finish()
                                     } else {
+                                        progressBarLogin.visibility= View.GONE
                                         Toast.makeText(
                                             this@LoginActivity,
                                             "Invalid Credentials",
@@ -124,6 +130,7 @@ class LoginActivity : AppCompatActivity() {
                                 }
                             },
                             Response.ErrorListener {
+                                progressBarLogin.visibility= View.GONE
                                 Toast.makeText(
                                     this@LoginActivity,
                                     "Volley error occurred",
@@ -139,6 +146,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     queue.add(jsonObjectRequest)
                 } else {
+                    progressBarLogin.visibility= View.GONE
                     val dialog = AlertDialog.Builder(this@LoginActivity)
                     dialog.setTitle("Error")
                     dialog.setMessage("Internet Connection Found")

@@ -7,6 +7,7 @@
     android:background="@color/colorPrimary"
     tools:context=".activity.LoginActivity">
 
+
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="240dp"
@@ -15,10 +16,25 @@
         android:layout_marginTop="70dp"
         android:src="@drawable/app_logo" />
 
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorSecondary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:paddingTop="50dp">
 
         <EditText
             android:id="@+id/etMobileNumber"
@@ -27,7 +43,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/text_boundary_background"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/phone"
             android:drawablePadding="10dp"
@@ -48,11 +64,11 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/text_boundary_background"
+            android:background="@drawable/bg_edit_text"
             android:backgroundTint="@color/colorBackground"
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
-            android:hint="@string/password"
+            android:hint="@string/enter_password"
             android:inputType="textPassword"
             android:maxLines="1"
             android:padding="10dp"
@@ -69,13 +85,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
             android:backgroundTint="@color/teal_700"
-            app:backgroundTint="@color/teal_700"
             android:padding="6dp"
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/teal_700" />
 
 
         <TextView
@@ -102,5 +118,14 @@
         android:text="@string/register_yourself"
         android:textColor="@color/black"
         android:textSize="16sp" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBarLogin"
+        android:indeterminate="true"
+        android:background="@color/colorSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

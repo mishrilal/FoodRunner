@@ -3,6 +3,7 @@ package io.github.mishrilal.foodrunner.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.widget.Toolbar
@@ -27,6 +28,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
         btnReset = findViewById(R.id.btnReset)
         var intent = Intent(this@ForgotPasswordActivity, ForgotNextActivity::class.java)
         btnReset.setOnClickListener {
+
+            etEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
+
 
             val mobileNumber = etForgotPassword.text.toString()
             val email = etEmail.text.toString()

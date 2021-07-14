@@ -205,7 +205,7 @@ class MainActivity : AppCompatActivity() {
         when (frag) {
             !is HomeFragment -> openHome()
 
-            else -> super.onBackPressed()
+            else -> finishAffinity()
         }
     }
 }

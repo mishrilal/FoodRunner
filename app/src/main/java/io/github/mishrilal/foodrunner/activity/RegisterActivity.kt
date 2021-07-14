@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
@@ -29,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var etPassword: EditText
     lateinit var etConfirmPassword: EditText
     lateinit var btnRegister: Button
+    lateinit var progressBarLogin: ProgressBar
     private lateinit var toolbar: Toolbar
     lateinit var sharedPreferences: SharedPreferences
 
@@ -51,51 +54,12 @@ class RegisterActivity : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         etConfirmPassword = findViewById(R.id.etConfirmPassword)
         btnRegister = findViewById(R.id.btnRegister)
+        progressBarLogin = findViewById(R.id.progressBarLogin)
 
-        var intent = Intent(this@RegisterActivity, MainActivity::class.java)
+
         btnRegister.setOnClickListener {
-            val name = etFullName.text.toString()
-            val mobileNumber = etMobileNumber.text.toString()
-            val email = etEmail.text.toString()
-            val address = etAddress.text.toString()
-            val password = etPassword.text.toString()
-            val confirmPassword = etConfirmPassword.text.toString()
 
-//            if (password.length <= 4) {
-//                Toast.makeText(
-//                    this@RegisterActivity,
-//                    "Password is too Small, Try Different Password",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else if (password == confirmPassword) {
-//                Toast.makeText(
-//                    this@RegisterActivity,
-//                    "Registered Successfully",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//
-//                intent.putExtra("Name", name)
-//                intent.putExtra("MobileNumber", mobileNumber)
-//                intent.putExtra("Email", email)
-//                intent.putExtra("Address", address)
-//                intent.putExtra("Password", password)
-//
-//                startActivity(intent)
-//                finish()
-//            } else if (password != confirmPassword) {
-//                Toast.makeText(
-//                    this@RegisterActivity,
-//                    "Password did not match, Try again",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else {
-//                Toast.makeText(
-//                    this@RegisterActivity,
-//                    "Something went Wrong, Try again later",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//                finish()
-//            }
+            etConfirmPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
 
             if (etFullName.text.toString().isEmpty())
@@ -139,6 +103,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this@RegisterActivity, "Weak Password", Toast.LENGTH_LONG)
                     .show()
             } else {
+                progressBarLogin.visibility = View.VISIBLE
                 sendRequest(
                     etFullName.text.toString(),
                     etMobileNumber.text.toString(),
@@ -147,14 +112,12 @@ class RegisterActivity : AppCompatActivity() {
                     etEmail.text.toString()
                 )
 
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Successfully Registered",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
-                startActivity(intent)
-                finish()
+//                Toast.makeText(
+//                    this@RegisterActivity,
+//                    "Successfully Registered",
+//                    Toast.LENGTH_SHORT
+//                )
+//                    .show()
             }
         }
 
@@ -216,25 +179,28 @@ class RegisterActivity : AppCompatActivity() {
                                 .apply()
 
                             savePreferences()
+                            val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                            progressBarLogin.visibility = View.GONE
+
+                            startActivity(intent)
+                            finish()
                         } else {
-//                            rlRegister.visibility = View.VISIBLE
-                            //progressBar.visibility=View.INVISIBLE
+
+                            progressBarLogin.visibility = View.GONE
                             Toast.makeText(
                                 this@RegisterActivity,
-                                "Some error occurred! in save",
+                                "Some error occurred!",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
                     } catch (e: Exception) {
-//                        rlRegister.visibility = View.VISIBLE
-                        //progressBar.visibility=View.INVISIBLE
+                        progressBarLogin.visibility = View.GONE
                         e.printStackTrace()
                     }
                 }, Response.ErrorListener {
                     Toast.makeText(this@RegisterActivity, "Volley Error!", Toast.LENGTH_SHORT)
                         .show()
-//                    rlRegister.visibility = View.VISIBLE
-                    //progressBar.visibility=View.VISIBLE
+                    progressBarLogin.visibility = View.GONE
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
@@ -245,6 +211,7 @@ class RegisterActivity : AppCompatActivity() {
             }
             queue.add(jsonObjectRequest)
         } else {
+            progressBarLogin.visibility = View.GONE
             val dialog = AlertDialog.Builder(this@RegisterActivity)
             dialog.setTitle("Error")
             dialog.setMessage("Internet Connection Found")
