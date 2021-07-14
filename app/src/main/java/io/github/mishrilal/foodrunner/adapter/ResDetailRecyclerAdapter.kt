@@ -50,7 +50,8 @@ class ResDetailRecyclerAdapter(val context: Context, val itemList:ArrayList<Rest
     override fun onBindViewHolder(holder: RestaurantsDetailsViewHolder, position: Int) {
         val restaurantsDetails = itemList[position]
         holder.txtDishName.text = restaurantsDetails.dishName
-        holder.txtPrice.text = restaurantsDetails.dishPrice
+        val price = "\u20B9${restaurantsDetails.dishPrice}"
+        holder.txtPrice.text = price
         holder.txtCount.text = (position + 1).toString()
 
         holder.imgAddToCart.setOnClickListener {

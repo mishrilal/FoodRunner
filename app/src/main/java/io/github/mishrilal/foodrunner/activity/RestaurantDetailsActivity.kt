@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
@@ -15,13 +16,17 @@ import androidx.core.view.setPadding
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import io.github.mishrilal.foodrunner.R
 import io.github.mishrilal.foodrunner.adapter.AllRestaurantsAdapter
 import io.github.mishrilal.foodrunner.adapter.AllRestaurantsAdapter.GetAllFavAsyncTask
 import io.github.mishrilal.foodrunner.adapter.ResDetailRecyclerAdapter
+import io.github.mishrilal.foodrunner.database.OrderEntity
+import io.github.mishrilal.foodrunner.database.RestaurantDatabase
 import io.github.mishrilal.foodrunner.database.RestaurantEntity
 import io.github.mishrilal.foodrunner.model.RestaurantsDetails
 import io.github.mishrilal.foodrunner.util.ConnectionManager
@@ -32,7 +37,6 @@ class RestaurantDetailsActivity : AppCompatActivity() {
     lateinit var imgResIsFav: ImageView
     private lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var relativeLayout: RelativeLayout
-    lateinit var frameLayout: FrameLayout
     lateinit var btnGoToCart: Button
 
     private val dishInfoList = arrayListOf<RestaurantsDetails>()
@@ -60,7 +64,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
         setupToolbar()
 
         btnGoToCart.setOnClickListener {
-//            proceedToCart()
+            proceedToCart()
         }
 
 
@@ -229,61 +233,61 @@ class RestaurantDetailsActivity : AppCompatActivity() {
     }
 
 
-//    private fun proceedToCart() {
-//        val gson = Gson()
-//        val foodItems = gson.toJson(orderList)
-//        val async = CartItems(
-//            this@RestaurantDetailsActivity,
-//            restaurantId.toString(),
-//            foodItems,
-//            1
-//        ).execute()
-//        val result = async.get()
-//        if (result) {
-//
-//            val intent = Intent(this@RestaurantDetailsActivity, MainActivity::class.java)
-//            intent.putExtra("resId", restaurantId)
-//            intent.putExtra("resName", restaurantName)
-//            startActivity(intent)
-//
-//        } else {
-//            Toast.makeText(
-//                this@RestaurantDetailsActivity,
-//                "Some unexpected error",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//
-//    }
-//
-//    class CartItems(
-//        context: Context,
-//        private val restaurantId: String,
-//        private val foodItems: String,
-//        val mode: Int
-//    ) :
-//        AsyncTask<Void, Void, Boolean>() {
-//        val db =
-//            Room.databaseBuilder(context, RestaurantDatabase::class.java, "restaurants-db").build()
-//
-//        override fun doInBackground(vararg params: Void?): Boolean {
-//
-//            when (mode) {
-//                1 -> {
-//                    db.orderDao().insertOrder(OrderEntity(restaurantId, foodItems))
-//                    db.close()
-//                    return true
-//                }
-//
-//                2 -> {
-//                    db.orderDao().deleteOrder(OrderEntity(restaurantId, foodItems))
-//                    db.close()
-//                    return true
-//                }
-//            }
-//            return false
-//        }
-//    }
+    private fun proceedToCart() {
+        val gson = Gson()
+        val foodItems = gson.toJson(orderList)
+        val async = CartItems(
+            this@RestaurantDetailsActivity,
+            restaurantId.toString(),
+            foodItems,
+            1
+        ).execute()
+        val result = async.get()
+        if (result) {
+
+            val intent = Intent(this@RestaurantDetailsActivity, MainActivity::class.java)
+            intent.putExtra("resId", restaurantId)
+            intent.putExtra("resName", restaurantName)
+            startActivity(intent)
+
+        } else {
+            Toast.makeText(
+                this@RestaurantDetailsActivity,
+                "Some unexpected error",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+    }
+
+    class CartItems(
+        context: Context,
+        private val restaurantId: String,
+        private val foodItems: String,
+        val mode: Int
+    ) :
+        AsyncTask<Void, Void, Boolean>() {
+        val db =
+            Room.databaseBuilder(context, RestaurantDatabase::class.java, "restaurants-db").build()
+
+        override fun doInBackground(vararg params: Void?): Boolean {
+
+            when (mode) {
+                1 -> {
+                    db.orderDao().insertOrder(OrderEntity(restaurantId, foodItems))
+                    db.close()
+                    return true
+                }
+
+                2 -> {
+                    db.orderDao().deleteOrder(OrderEntity(restaurantId, foodItems))
+                    db.close()
+                    return true
+                }
+            }
+            return false
+        }
+    }
 
     override fun onBackPressed() {
 

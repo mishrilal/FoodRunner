@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorBackground"
+    android:background="@drawable/bg_dish_list"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:layout_margin="5dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp">
 
 
     <TextView
         android:id="@+id/txtResID"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:padding="5dp"
         android:text="1"
         android:textSize="22sp" />
 
@@ -20,12 +21,12 @@
         android:id="@+id/txtDishName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
         android:layout_toEndOf="@+id/txtResID"
         android:padding="5dp"
         android:text="Dish Name"
         android:textColor="@color/white"
-        android:layout_marginLeft="15dp"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtDishPrice"
@@ -41,28 +42,33 @@
         android:paddingBottom="2dp"
         android:text="Rs. 100"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/imgAddToCart"
-        android:padding="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:background="@drawable/img_bg_cart_green"
-        android:src="@drawable/ic_add"/>
+        android:padding="7dp"
+        android:src="@drawable/ic_add" />
 
     <ImageView
         android:id="@+id/imgRemoveFromCart"
-        android:padding="7dp"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:background="@drawable/img_bg_cart_red"
-        android:src="@drawable/ic_remove"/>
+        android:padding="7dp"
+        android:src="@drawable/ic_remove"
+        android:visibility="gone" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true" />
 
 
 </RelativeLayout>
