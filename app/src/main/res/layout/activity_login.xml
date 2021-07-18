@@ -69,7 +69,7 @@
             android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:hint="@string/enter_password"
-            android:inputType="textPassword"
+            android:inputType="numberPassword"
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"

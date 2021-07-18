@@ -121,9 +121,11 @@ class LoginActivity : AppCompatActivity() {
                                         finish()
                                     } else {
                                         progressBarLogin.visibility= View.GONE
+                                        val responseMessageServer =
+                                            data.getString("errorMessage")
                                         Toast.makeText(
                                             this@LoginActivity,
-                                            "Invalid Credentials",
+                                            responseMessageServer,
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
@@ -187,7 +189,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validations(phone: String, password: String): Boolean {
-
+        progressBarLogin.visibility= View.GONE
         if (phone.isEmpty() && password.isEmpty()) {
             Toast.makeText(this@LoginActivity, "Enter Credentials", Toast.LENGTH_SHORT).show()
             return false

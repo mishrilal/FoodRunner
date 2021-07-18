@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
@@ -25,6 +26,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
     lateinit var etMobileNumber: EditText
     lateinit var etEmail: EditText
     lateinit var btnReset: Button
+    lateinit var progressBarForgot: ProgressBar
     private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         etMobileNumber = findViewById(R.id.etMobileNumber)
         etEmail = findViewById(R.id.etEmail)
         btnReset = findViewById(R.id.btnReset)
+        progressBarForgot = findViewById(R.id.progressBarForgot)
         var intent = Intent(this@ForgotPasswordActivity, ForgotNextActivity::class.java)
 
 //        progressDialog = view.findViewById(R.id.forgotPasswordInputProgressDialog)
@@ -62,7 +65,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                             val queue = Volley.newRequestQueue(this@ForgotPasswordActivity)
                             val url = "http://13.235.250.119/v2/forgot_password/fetch_result/"
 
-//                            progressDialog.visibility = View.VISIBLE
+                            progressBarForgot.visibility = View.VISIBLE
 
                             val jsonObjectRequest = object : JsonObjectRequest(
                                 Request.Method.POST,
@@ -106,7 +109,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                         ).show()
 
                                     }
-//                                    progressDialog.visibility = View.GONE
+                                    progressBarForgot.visibility = View.GONE
                                 },
                                 Response.ErrorListener
                                 {
@@ -118,7 +121,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                     ).show()
 
 
-//                                    progressDialog.visibility = View.GONE
+                                    progressBarForgot.visibility = View.GONE
 
                                 }) {
 
