@@ -59,113 +59,126 @@ class LoginActivity : AppCompatActivity() {
         txtForgotPassword = findViewById(R.id.txtForgotPassword)
         txtRegister = findViewById(R.id.txtRegister)
         btnLogin = findViewById(R.id.btnLogin)
-        progressBarLogin= findViewById(R.id.progressBarLogin)
+        progressBarLogin = findViewById(R.id.progressBarLogin)
 
         btnLogin.setOnClickListener {
-            progressBarLogin.visibility= View.VISIBLE
-            etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            if(etMobileNumber.text.isBlank() && etPassword.text.isBlank()) {
+                etMobileNumber.error = "Enter Mobile Number"
+                etPassword.error = "Enter Password"
+            }
+            else if (etMobileNumber.text.isBlank()) {
+                etMobileNumber.error = "Enter Mobile Number"
+            } else if (etPassword.text.isBlank()) {
+                etPassword.error = "Enter Password"
+            } else {
+                progressBarLogin.visibility = View.VISIBLE
+                etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
-            val mobileNumber = etMobileNumber.text.toString()
-            val password = etPassword.text.toString()
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val mobileNumber = etMobileNumber.text.toString()
+                val password = etPassword.text.toString()
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
 
-            if (validations(etMobileNumber.text.toString(), etPassword.text.toString())) {
+                if (validations(etMobileNumber.text.toString(), etPassword.text.toString())) {
 
-                if (ConnectionManager().isNetworkAvailable(this@LoginActivity)) {
+                    if (ConnectionManager().isNetworkAvailable(this@LoginActivity)) {
 
-                    val queue = Volley.newRequestQueue(this@LoginActivity)
-                    val url = "http://13.235.250.119/v2/login/fetch_result/"
-                    val jsonParams = JSONObject()
-                    jsonParams.put("mobile_number", mobileNumber)
-                    jsonParams.put("password", password)
+                        val queue = Volley.newRequestQueue(this@LoginActivity)
+                        val url = "http://13.235.250.119/v2/login/fetch_result/"
+                        val jsonParams = JSONObject()
+                        jsonParams.put("mobile_number", mobileNumber)
+                        jsonParams.put("password", password)
 
-                    val jsonObjectRequest =
-                        object : JsonObjectRequest(
-                            Request.Method.POST,
-                            url,
-                            jsonParams,
-                            Response.Listener {
-                                try {
-                                    val data = it.getJSONObject("data")
-                                    val success = data.getBoolean("success")
-                                    if (success) {
-                                        btnLogin.isEnabled = false
-                                        btnLogin.isClickable = false
+                        val jsonObjectRequest =
+                            object : JsonObjectRequest(
+                                Request.Method.POST,
+                                url,
+                                jsonParams,
+                                Response.Listener {
+                                    try {
+                                        val data = it.getJSONObject("data")
+                                        val success = data.getBoolean("success")
+                                        if (success) {
+                                            btnLogin.isEnabled = false
+                                            btnLogin.isClickable = false
 
 
-                                        val response = data.getJSONObject("data")
-                                        sharedPreferences.edit()
-                                            .putString("user_id", response.getString("user_id"))
-                                            .apply()
-                                        sharedPreferences.edit()
-                                            .putString("user_name", response.getString("name"))
-                                            .apply()
-                                        sharedPreferences.edit().putString(
-                                            "user_mobile_number",
-                                            response.getString("mobile_number")
-                                        ).apply()
-                                        sharedPreferences.edit()
-                                            .putString(
-                                                "user_address",
-                                                response.getString("address")
-                                            )
-                                            .apply()
-                                        sharedPreferences.edit()
-                                            .putString("user_email", response.getString("email"))
-                                            .apply()
+                                            val response = data.getJSONObject("data")
+                                            sharedPreferences.edit()
+                                                .putString("user_id", response.getString("user_id"))
+                                                .apply()
+                                            sharedPreferences.edit()
+                                                .putString("user_name", response.getString("name"))
+                                                .apply()
+                                            sharedPreferences.edit().putString(
+                                                "user_mobile_number",
+                                                response.getString("mobile_number")
+                                            ).apply()
+                                            sharedPreferences.edit()
+                                                .putString(
+                                                    "user_address",
+                                                    response.getString("address")
+                                                )
+                                                .apply()
+                                            sharedPreferences.edit()
+                                                .putString(
+                                                    "user_email",
+                                                    response.getString("email")
+                                                )
+                                                .apply()
 
-                                        savePreferences()
-                                        println("ID: ${response.getString("user_id")}")
-                                        progressBarLogin.visibility= View.GONE
-                                        startActivity(intent)
-                                        finish()
-                                    } else {
-                                        progressBarLogin.visibility= View.GONE
-                                        val responseMessageServer =
-                                            data.getString("errorMessage")
-                                        Toast.makeText(
-                                            this@LoginActivity,
-                                            responseMessageServer,
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                            savePreferences()
+                                            println("ID: ${response.getString("user_id")}")
+                                            progressBarLogin.visibility = View.GONE
+                                            startActivity(intent)
+                                            finish()
+                                        } else {
+                                            progressBarLogin.visibility = View.GONE
+                                            val responseMessageServer =
+                                                data.getString("errorMessage")
+                                            Toast.makeText(
+                                                this@LoginActivity,
+                                                responseMessageServer,
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    } catch (e: JSONException) {
+                                        e.printStackTrace()
                                     }
-                                } catch (e: JSONException) {
-                                    e.printStackTrace()
+                                },
+                                Response.ErrorListener {
+                                    progressBarLogin.visibility = View.GONE
+                                    Toast.makeText(
+                                        this@LoginActivity,
+                                        "Volley error occurred",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }) {
+                                override fun getHeaders(): MutableMap<String, String> {
+                                    val headers = HashMap<String, String>()
+                                    headers["Content-type"] = "application/json"
+                                    headers["token"] = "9bf534118365f1"
+                                    return headers
                                 }
-                            },
-                            Response.ErrorListener {
-                                progressBarLogin.visibility= View.GONE
-                                Toast.makeText(
-                                    this@LoginActivity,
-                                    "Volley error occurred",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }) {
-                            override fun getHeaders(): MutableMap<String, String> {
-                                val headers = HashMap<String, String>()
-                                headers["Content-type"] = "application/json"
-                                headers["token"] = "9bf534118365f1"
-                                return headers
                             }
+                        queue.add(jsonObjectRequest)
+                    } else {
+                        progressBarLogin.visibility = View.GONE
+                        val dialog = AlertDialog.Builder(this@LoginActivity)
+                        dialog.setTitle("Error")
+                        dialog.setMessage("Internet Connection Found")
+                        dialog.setPositiveButton("Open Settings") { text, listener ->
+                            val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
+                            startActivity(settingsIntent)
+                            this.finish()
+
                         }
-                    queue.add(jsonObjectRequest)
-                } else {
-                    progressBarLogin.visibility= View.GONE
-                    val dialog = AlertDialog.Builder(this@LoginActivity)
-                    dialog.setTitle("Error")
-                    dialog.setMessage("Internet Connection Found")
-                    dialog.setPositiveButton("Open Settings") { text, listener ->
-                        val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
-                        startActivity(settingsIntent)
-                        this.finish()
+                        dialog.setNegativeButton("Exit") { text, listener ->
 
+                            ActivityCompat.finishAffinity(this@LoginActivity)
+                        }
+                        dialog.create()
+                        dialog.show()
                     }
-                    dialog.setNegativeButton("Exit") { text, listener ->
-
-                        ActivityCompat.finishAffinity(this@LoginActivity)
-                    }
-                    dialog.create()
-                    dialog.show()
                 }
             }
         }
@@ -189,29 +202,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validations(phone: String, password: String): Boolean {
-        progressBarLogin.visibility= View.GONE
-        if (phone.isEmpty() && password.isEmpty()) {
-            Toast.makeText(this@LoginActivity, "Enter Credentials", Toast.LENGTH_SHORT).show()
-            return false
-        } else if (phone.isEmpty()) {
-            Toast.makeText(this@LoginActivity, "Enter Mobile Number", Toast.LENGTH_SHORT).show()
-            return false
-        } else {
-            return if (password.isEmpty()) {
-                Toast.makeText(this@LoginActivity, "Enter Password", Toast.LENGTH_SHORT).show()
-                false
-            } else {
-                if (!phone.trim().matches(mobilePattern.toRegex())) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Enter a valid Mobile number",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                    false
-                } else
-                    true
-            }
-        }
+        progressBarLogin.visibility = View.GONE
+        return if (!phone.trim().matches(mobilePattern.toRegex())) {
+            etMobileNumber.error = "Enter a valid Mobile Number"
+            false
+        } else
+            true
     }
 }

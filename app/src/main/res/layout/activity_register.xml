@@ -69,7 +69,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/mobile_number"
             android:inputType="phone"
-            android:maxLength="12"
+            android:maxLength="10"
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/black"

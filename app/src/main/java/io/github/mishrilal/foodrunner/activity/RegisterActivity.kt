@@ -63,46 +63,24 @@ class RegisterActivity : AppCompatActivity() {
 
 
             if (etFullName.text.toString().isEmpty())
-                Toast.makeText(this@RegisterActivity, "Enter Name", Toast.LENGTH_LONG).show()
-            else if (etEmail.text.toString().isEmpty())
-                Toast.makeText(this@RegisterActivity, "Enter Email Id", Toast.LENGTH_LONG)
-                    .show()
+                etFullName.error = "Enter Your Name"
             else if (etMobileNumber.text.toString().isEmpty())
-                Toast.makeText(this@RegisterActivity, "Enter Mobile Number", Toast.LENGTH_LONG)
-                    .show()
-            else if (etAddress.text.toString().isEmpty())
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Enter Delivery Address",
-                    Toast.LENGTH_LONG
-                )
-                    .show()
-            else if (etPassword.text.toString().isEmpty())
-                Toast.makeText(this@RegisterActivity, "Enter Password", Toast.LENGTH_LONG)
-                    .show()
-            else if (etPassword.text.toString() != etConfirmPassword.text.toString())
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Passwords doesn't match. Please try again!",
-                    Toast.LENGTH_LONG
-                ).show()
-            else if (!etEmail.text.toString().trim().matches(emailPattern.toRegex()))
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Enter a valid Email Id",
-                    Toast.LENGTH_LONG
-                )
-                    .show()
+                etMobileNumber.error = "Enter Mobile Number"
             else if (!etMobileNumber.text.toString().trim().matches(mobilePattern.toRegex()))
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Enter a valid Mobile number",
-                    Toast.LENGTH_LONG
-                ).show()
-            else if (etPassword.length() < 4) {
-                Toast.makeText(this@RegisterActivity, "Weak Password", Toast.LENGTH_LONG)
-                    .show()
-            } else {
+                etMobileNumber.error = "Enter a valid Mobile number"
+            else if (etEmail.text.toString().isEmpty())
+                etEmail.error = "Enter Email Id"
+            else if (!etEmail.text.toString().trim().matches(emailPattern.toRegex()))
+                etEmail.error = "Enter a valid Email Id"
+            else if (etAddress.text.toString().isEmpty())
+                etAddress.error = "Enter Delivery Address"
+            else if (etPassword.text.toString().isEmpty())
+                etPassword.error = "Enter Password"
+            else if (etPassword.length() < 4)
+                etPassword.error = "Weak Password"
+            else if (etPassword.text.toString() != etConfirmPassword.text.toString())
+                etConfirmPassword.error = "Passwords doesn't match!"
+            else {
                 progressBarLogin.visibility = View.VISIBLE
                 sendRequest(
                     etFullName.text.toString(),
