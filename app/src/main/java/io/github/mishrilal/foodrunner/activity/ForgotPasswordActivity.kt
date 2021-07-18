@@ -125,7 +125,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                 override fun getHeaders(): MutableMap<String, String> {
                                     val headers = HashMap<String, String>()
                                     headers["Content-type"] = "application/json"
-                                    headers["token"] = "13714ab03e5a4d"
+                                    headers["token"] = "9bf534118365f1"
                                     return headers
                                 }
                             }
@@ -170,6 +170,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     fun callForgotPasswordNext() {
         val intent = Intent(this@ForgotPasswordActivity, ForgotNextActivity::class.java)
+        intent.putExtra("mobile_number", etMobileNumber.text.toString())
         startActivity(intent)
         finish()
     }
