@@ -20,6 +20,12 @@
             android:title="@string/favorites" />
 
         <item
+            android:id="@+id/orderHistory"
+            android:icon="@drawable/ic_favourite"
+            android:title="@string/order_history" />
+
+
+        <item
             android:id="@+id/faqs"
             android:icon="@drawable/ic_faq"
             android:title="@string/faqs" />

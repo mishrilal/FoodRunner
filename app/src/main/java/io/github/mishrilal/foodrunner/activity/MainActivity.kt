@@ -20,10 +20,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import io.github.mishrilal.foodrunner.R
-import io.github.mishrilal.foodrunner.fragment.FaqFragment
-import io.github.mishrilal.foodrunner.fragment.FavouritesFragment
-import io.github.mishrilal.foodrunner.fragment.HomeFragment
-import io.github.mishrilal.foodrunner.fragment.MyProfileFragment
+import io.github.mishrilal.foodrunner.fragment.*
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
@@ -98,6 +95,13 @@ class MainActivity : AppCompatActivity() {
                     fragmentTransaction.replace(R.id.frame, favFragment)
                     fragmentTransaction.commit()
                     supportActionBar?.title = "Favorite Restaurants"
+                }
+
+                R.id.orderHistory -> {
+                    val orderHistory = OrderHistoryFragment()
+                    fragmentTransaction.replace(R.id.frame, orderHistory)
+                    fragmentTransaction.commit()
+                    supportActionBar?.title = "Order History"
                 }
 
                 R.id.faqs -> {

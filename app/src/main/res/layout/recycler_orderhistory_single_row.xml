@@ -18,7 +18,7 @@
             android:text="@string/restaurant_name"
             android:padding="5dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorSecondary"/>
 
         <TextView
             android:id="@+id/txtDate"
@@ -28,7 +28,7 @@
             android:text="@string/date"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorSecondary"/>
 
     </LinearLayout>
 
