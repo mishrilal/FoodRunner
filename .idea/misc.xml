@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.21244444444444444" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_place_order.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.15613382899628253" />
         <entry key="app/src/main/res/layout/activity_register_new.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_restaurant_details.xml" value="0.1814814814814815" />
@@ -50,7 +51,9 @@
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.22510384277933676" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_order_history.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/recycler_cart_single_row.xml" value="0.2153153153153153" />
+        <entry key="app/src/main/res/layout/recycler_orderhistory_single_row.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/recycler_res_details_single_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/menu/drawer_item.xml" value="0.20315315315315316" />

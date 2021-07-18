@@ -191,7 +191,7 @@ class CartActivity : AppCompatActivity() {
                             ClearDBAsync(applicationContext, resId.toString()).execute().get()
                             ResDetailRecyclerAdapter.isCartEmpty = true
                             Toast.makeText(this@CartActivity,"Order Placed", Toast.LENGTH_SHORT).show()
-                            val intent= Intent(this,MainActivity::class.java)
+                            val intent= Intent(this,PlaceOrderActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
                         } else {
