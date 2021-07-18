@@ -57,10 +57,10 @@ class OrderHistoryFragment : Fragment() {
 
     private fun sendRequest(userId: String) {
         val queue = Volley.newRequestQueue(activity as Context)
-        val url = "http://13.235.250.119/v2/orders/fetch_result/"
+        val url = "http://13.235.250.119/v2/orders/fetch_result/$userId"
 
         val jsonObjectRequest = object :
-            JsonObjectRequest(Method.GET, url + "5", null, Response.Listener {
+            JsonObjectRequest(Method.GET, url, null, Response.Listener {
                 try {
                     progressLayout.visibility = View.GONE
                     val data = it.getJSONObject("data")
