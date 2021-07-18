@@ -8,6 +8,6 @@
         android:width="1dp"
         android:color="@color/colorPrimaryDark" />
     <corners
-        android:radius="22dp"/>
+        android:radius="6dp"/>
 
 </shape>

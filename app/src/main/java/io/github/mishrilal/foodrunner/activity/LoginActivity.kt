@@ -92,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                                         btnLogin.isEnabled = false
                                         btnLogin.isClickable = false
 
+
                                         val response = data.getJSONObject("data")
                                         sharedPreferences.edit()
                                             .putString("user_id", response.getString("user_id"))
@@ -114,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
                                             .apply()
 
                                         savePreferences()
+                                        println("ID: ${response.getString("user_id")}")
                                         progressBarLogin.visibility= View.GONE
                                         startActivity(intent)
                                         finish()

@@ -185,11 +185,12 @@ class RegisterActivity : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         } else {
-
+                            val responseMessageServer =
+                                data.getString("errorMessage")
                             progressBarLogin.visibility = View.GONE
                             Toast.makeText(
                                 this@RegisterActivity,
-                                "Some error occurred!",
+                                responseMessageServer,
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
