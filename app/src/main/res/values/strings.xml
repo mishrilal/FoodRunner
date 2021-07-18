@@ -70,9 +70,7 @@
     <string name="email">johndoe@doe.gmail.com</string>
     <string name="enter_mobile_forgot_password">Enter your registered mobile number and email below:</string>
     <string name="next">Next</string>
-    <string name="enter_otp">Enter the received OTP below</string>
-    <string name="otp">OTP (4 characters)</string>
-    <string name="new_password">New Password (Min. 4 characters)</string>
+    <string name="new_password">New Password</string>
     <string name="submit">Submit</string>
     <string name="order_placed">Your order has been successfully placed!</string>
     <string name="order_history_static_text">Your previous orders are listed below :</string>
@@ -80,6 +78,8 @@
     <string name="logout">LogOut</string>
     <string name="proceed_to_cart">Proceed to Cart</string>
     <string name="enter_password">Enter Password</string>
+    <string name="otp">OTP</string>
+    <string name="confirm">Confirm</string>
     <array name="filters">
         <item>Cost(Low to High)</item>
         <item>Cost(High to Low)</item>
