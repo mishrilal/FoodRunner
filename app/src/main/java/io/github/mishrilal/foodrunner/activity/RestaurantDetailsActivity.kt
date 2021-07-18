@@ -245,7 +245,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
         val result = async.get()
         if (result) {
 
-            val intent = Intent(this@RestaurantDetailsActivity, MainActivity::class.java)
+            val intent = Intent(this@RestaurantDetailsActivity, CartActivity::class.java)
             intent.putExtra("resId", restaurantId)
             intent.putExtra("resName", restaurantName)
             startActivity(intent)

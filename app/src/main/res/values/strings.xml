@@ -80,6 +80,8 @@
     <string name="enter_password">Enter Password</string>
     <string name="otp">OTP</string>
     <string name="confirm">Confirm</string>
+    <string name="ordering_from">Ordering From :</string>
+    <string name="place_order">Place Order</string>
     <array name="filters">
         <item>Cost(Low to High)</item>
         <item>Cost(High to Low)</item>

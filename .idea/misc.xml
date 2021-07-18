@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/layout-v28/recycler_res_details_single_row.xml" value="0.375" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.197265625" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.18671875" />
+        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/activity_forgot_next.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.21244444444444444" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.15185185185185185" />
@@ -49,6 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_favourites.xml" value="0.22510384277933676" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/recycler_cart_single_row.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/recycler_res_details_single_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/menu/drawer_item.xml" value="0.20315315315315316" />
