@@ -33,7 +33,7 @@ class CartRecyclerAdapter(private val cartArray:ArrayList<RestaurantsDetails>, v
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val cartObj=cartArray[position]
         holder.txtDishName.text=cartObj.dishName
-        val price="Rs. ${cartObj.dishPrice}"
+        val price="\u20B9 ${cartObj.dishPrice}"
         holder.txtCost.text=price
     }
 
