@@ -1,5 +1,6 @@
 package io.github.mishrilal.foodrunner.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList
     class OrderHistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtResName: TextView = view.findViewById(R.id.txtResName)
         val txtDate: TextView = view.findViewById(R.id.txtDate)
+        val txtTotalPrice: TextView = view.findViewById(R.id.txtTotalPrice)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
     }
 
@@ -32,10 +34,18 @@ class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList
         return orderList.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: OrderHistoryViewHolder, position: Int) {
+        var totalPrice: Int = 0
         val orderHistory = orderList[position]
         holder.txtResName.text = orderHistory.resName
         holder.txtDate.text = formatDate(orderHistory.orderDate)
+        for (i in 0 until orderHistory.foodItem.length()) {
+            val foodJson = orderHistory.foodItem.getJSONObject(i)
+            totalPrice += foodJson.getString("cost").toInt()
+        }
+        holder.txtTotalPrice.text =  "Total: \u20B9$totalPrice"
+        println("Order History: $orderHistory, Order List: $orderList")
         setUpRecycler(holder.recyclerView, orderHistory)
     }
 

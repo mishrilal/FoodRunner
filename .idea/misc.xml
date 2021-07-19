@@ -32,7 +32,7 @@
         <entry key="app/src/main/res/drawable/res_image_background.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/rupee_indian.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/text_boundary_background.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/layout-v28/recycler_res_details_single_row.xml" value="0.375" />
+        <entry key="app/src/main/res/layout-v28/recycler_res_details_single_row.xml" value="0.1" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.197265625" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.18671875" />
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.2153153153153153" />
