@@ -52,7 +52,8 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24512820512820513" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/fragment_order_history.xml" value="0.2153153153153153" />
-        <entry key="app/src/main/res/layout/recycler_cart_single_row.xml" value="0.2153153153153153" />
+        <entry key="app/src/main/res/layout/recycler_cart_single_row.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/recycler_order_dish_single_row.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recycler_orderhistory_single_row.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/recycler_res_details_single_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
