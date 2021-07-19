@@ -35,8 +35,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var coordinateLayout: CoordinatorLayout
     lateinit var toolbar: Toolbar
     val orderList=ArrayList<RestaurantsDetails>()
-    lateinit var progressLayout: RelativeLayout
-    lateinit var progressBar: ProgressBar
+    lateinit var progressBarCart: ProgressBar
     lateinit var rlMyCart: RelativeLayout
     lateinit var txtResName: TextView
     private lateinit var recyclerAdapter: CartRecyclerAdapter
@@ -59,12 +58,9 @@ class CartActivity : AppCompatActivity() {
         frameLayout = findViewById(R.id.frameLayout)
         txtResName = findViewById(R.id.txtResName)
 
-        progressBar = findViewById(R.id.progressBar)
+        progressBarCart = findViewById(R.id.progressBarCart)
         rlMyCart = findViewById(R.id.rlMyCart)
-        progressLayout = findViewById(R.id.progressLayout)
-        progressLayout.visibility = View.GONE
         btnOrder=findViewById(R.id.btnOrder)
-        btnOrder.visibility = View.VISIBLE
 
         setUpToolbar()
 
@@ -112,11 +108,9 @@ class CartActivity : AppCompatActivity() {
         if(orderList.isEmpty())
         {
             rlMyCart.visibility= View.GONE
-            progressLayout.visibility= View.VISIBLE
         }
         else{
             rlMyCart.visibility= View.VISIBLE
-            progressLayout.visibility= View.GONE
         }
 
         recyclerAdapter= CartRecyclerAdapter(orderList,this@CartActivity)
@@ -134,7 +128,7 @@ class CartActivity : AppCompatActivity() {
         val total = "Place Order(Total: Rs. $sum)"
         btnOrder.text = total
         btnOrder.setOnClickListener {
-            progressLayout.visibility = View.VISIBLE
+            progressBarCart.visibility = View.VISIBLE
             sendRequest()
         }
     }
@@ -156,8 +150,6 @@ class CartActivity : AppCompatActivity() {
 
         if (ConnectionManager().isNetworkAvailable(this)) {
             try {
-                progressLayout.visibility = View.GONE
-
                 val jsonParams = JSONObject()
                 jsonParams.put(
                     "user_id",
@@ -169,7 +161,7 @@ class CartActivity : AppCompatActivity() {
                     ) as String
                 )
 
-                jsonParams.put("restaurant_id", resId?.toString() as String)
+                jsonParams.put("restaurant_id", resId.toString() as String)
                 var total = 0
                 for (i in 0 until orderList.size) {
                     total += orderList[i].dishPrice.toInt()
@@ -187,7 +179,7 @@ class CartActivity : AppCompatActivity() {
 
                         val obj = it.getJSONObject("data")
                         val success = obj.getBoolean("success")
-                        if (true) {
+                        if (success) {
                             ClearDBAsync(applicationContext, resId.toString()).execute().get()
                             ResDetailRecyclerAdapter.isCartEmpty = true
                             Toast.makeText(this@CartActivity,"Order Placed", Toast.LENGTH_SHORT).show()
@@ -195,10 +187,13 @@ class CartActivity : AppCompatActivity() {
                             startActivity(intent)
                             finishAffinity()
                         } else {
+                            progressBarCart.visibility = View.GONE
                             rlMyCart.visibility = View.VISIBLE
+                            val responseMessageServer =
+                                obj.getString("errorMessage")
                             Toast.makeText(
                                 this@CartActivity,
-                                "Some Error Occurred Third",
+                                responseMessageServer,
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -220,11 +215,12 @@ class CartActivity : AppCompatActivity() {
                     }
                 queue.add(jsonObjectRequest)
             } catch (e: Exception) {
+                progressBarCart.visibility = View.GONE
                 rlMyCart.visibility = View.VISIBLE
                 e.printStackTrace()
             }
         } else {
-
+            progressBarCart.visibility = View.GONE
             val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be establish!")

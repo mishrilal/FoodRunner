@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".activity.CartActivity">
 
     <RelativeLayout
@@ -17,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ordering_from"
             android:layout_marginTop="65dp"
+            android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_marginStart="10dp"/>
 
@@ -26,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/colorSecondary"
             android:layout_marginTop="65dp"
             android:layout_toEndOf="@id/txtOrder"
             android:layout_marginStart="10dp"/>
@@ -56,9 +58,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPrimaryDark"
                     app:layout_scrollFlags="scroll|enterAlways"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressBarCart"
+                    android:indeterminate="true"
+                    android:background="@color/colorSecondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"/>
 
             </com.google.android.material.appbar.AppBarLayout>
 
@@ -74,29 +85,14 @@
             android:id="@+id/btnOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorSecondary"
+            app:backgroundTint="@color/colorSecondary"
+            android:background="@color/colorSecondary"
             android:layout_alignParentBottom="true"
             android:text="@string/place_order"
-            android:visibility="gone"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="18sp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/progressLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
-
 
     </RelativeLayout>
 
