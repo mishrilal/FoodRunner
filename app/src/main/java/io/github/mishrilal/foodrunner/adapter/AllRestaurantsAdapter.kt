@@ -87,8 +87,6 @@ class AllRestaurantsAdapter(private var restaurants: ArrayList<Restaurants>, val
         }
 
         p0.cardRestaurant.setOnClickListener {
-            Toast.makeText(context, "Clicked on: ${p0.restaurantName.text}", Toast.LENGTH_SHORT)
-                .show()
             val intent = Intent(context, RestaurantDetailsActivity::class.java)
             intent.putExtra("id", resObject.id)
             intent.putExtra("name", resObject.name)

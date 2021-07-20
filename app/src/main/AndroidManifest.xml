@@ -23,9 +23,6 @@
             android:name=".activity.RestaurantDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.RegisterNewActivity"
-            android:exported="true" />
-        <activity
             android:name=".activity.ForgotNextActivity"
             android:exported="true" />
         <activity

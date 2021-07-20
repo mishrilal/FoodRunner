@@ -73,7 +73,7 @@ class CartActivity : AppCompatActivity() {
             finish()
             Toast.makeText(
                 this@CartActivity,
-                "Some unexpected Error occurred! First",
+                "Some unexpected Error occurred!",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -81,7 +81,7 @@ class CartActivity : AppCompatActivity() {
             finish()
             Toast.makeText(
                 this@CartActivity,
-                "Some unexpected Error occurred! Second",
+                "Some unexpected Error occurred!",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -183,7 +183,6 @@ class CartActivity : AppCompatActivity() {
                         if (success) {
                             ClearDBAsync(applicationContext, resId.toString()).execute().get()
                             ResDetailRecyclerAdapter.isCartEmpty = true
-                            Toast.makeText(this@CartActivity,"Order Placed", Toast.LENGTH_SHORT).show()
                             val intent= Intent(this,PlaceOrderActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
@@ -203,7 +202,7 @@ class CartActivity : AppCompatActivity() {
                         rlMyCart.visibility = View.VISIBLE
                         Toast.makeText(
                             this@CartActivity,
-                            "Volley Error Occurred Fourth",
+                            "Volley Error Occurred",
                             Toast.LENGTH_SHORT
                         ).show()
                     }) {
