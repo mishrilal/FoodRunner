@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/drawable/bg_profile_ic_img.xml" value="0.2262222222222222" />
         <entry key="app/src/main/res/drawable/bg_profile_text.xml" value="0.2262222222222222" />
         <entry key="app/src/main/res/drawable/bg_profile_user_img.xml" value="0.11203703703703703" />
+        <entry key="app/src/main/res/drawable/bg_search_bar.xml" value="0.2262222222222222" />
         <entry key="app/src/main/res/drawable/drawer_list_selector.xml" value="0.22927927927927927" />
         <entry key="app/src/main/res/drawable/email.xml" value="0.1287037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_local_cafe_24.xml" value="0.26510416666666664" />
@@ -39,7 +40,7 @@
         <entry key="app/src/main/res/layout/activity_forgot_next.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.21244444444444444" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.15185185185185185" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24535315985130113" />
         <entry key="app/src/main/res/layout/activity_place_order.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.15613382899628253" />
         <entry key="app/src/main/res/layout/activity_register_new.xml" value="0.24895833333333334" />
