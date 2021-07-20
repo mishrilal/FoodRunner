@@ -250,7 +250,8 @@ class HomeFragment(val contextParam: Context) : Fragment() {
             if (restaurantInfoList.isEmpty())
                 fetchData()
         } else {
-            val alterDialog = androidx.appcompat.app.AlertDialog.Builder(activity as Context)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(activity, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be established!")
             alterDialog.setPositiveButton("Open Settings")

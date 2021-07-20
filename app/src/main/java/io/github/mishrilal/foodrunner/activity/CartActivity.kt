@@ -257,7 +257,8 @@ class CartActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+        val alterDialog: AlertDialog.Builder =
+            AlertDialog.Builder(this, R.style.AlertDialogStyle)
         alterDialog.setTitle("Alert!")
         alterDialog.setMessage("Going back will remove everything from cart")
         alterDialog.setPositiveButton("Okay") { text, listener ->
