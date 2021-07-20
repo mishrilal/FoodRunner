@@ -1,6 +1,8 @@
 package io.github.mishrilal.foodrunner.fragment
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -170,7 +172,8 @@ class HomeFragment(val contextParam: Context) : Fragment() {
             }
         } else {
 
-            val alterDialog = androidx.appcompat.app.AlertDialog.Builder(activity as Context)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(activity as Context, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be established!")
             alterDialog.setPositiveButton("Open Settings")
@@ -193,6 +196,7 @@ class HomeFragment(val contextParam: Context) : Fragment() {
         inflater.inflate(R.menu.menu_home, menu)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
@@ -204,7 +208,8 @@ class HomeFragment(val contextParam: Context) : Fragment() {
                     R.layout.sort_radio_button,
                     null
                 )     //radiobutton view for sorting display
-                val alterDialog = androidx.appcompat.app.AlertDialog.Builder(activity as Context)
+                val alterDialog: AlertDialog.Builder =
+                    AlertDialog.Builder(activity, R.style.AlertDialogStyle)
                 alterDialog.setTitle("Sort By?")
                 alterDialog.setView(radioButtonView)
                 alterDialog.setPositiveButton("OK")

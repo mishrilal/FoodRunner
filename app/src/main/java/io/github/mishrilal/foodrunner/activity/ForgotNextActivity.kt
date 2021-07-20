@@ -1,5 +1,6 @@
 package io.github.mishrilal.foodrunner.activity
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -125,8 +126,8 @@ class ForgotNextActivity : AppCompatActivity() {
                                     ).show()
                                 }
                             } else {
-                                val alterDialog =
-                                    androidx.appcompat.app.AlertDialog.Builder(this@ForgotNextActivity)
+                                val alterDialog: AlertDialog.Builder =
+                                    AlertDialog.Builder(this, R.style.AlertDialogStyle)
                                 alterDialog.setTitle("No Internet")
                                 alterDialog.setMessage("Internet Connection can't be established!")
                                 alterDialog.setPositiveButton("Open Settings")
@@ -161,7 +162,8 @@ class ForgotNextActivity : AppCompatActivity() {
     override fun onResume() {
 
         if (!ConnectionManager().isNetworkAvailable(this@ForgotNextActivity)) {
-            val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this@ForgotNextActivity)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be established!")
             alterDialog.setPositiveButton("Open Settings")

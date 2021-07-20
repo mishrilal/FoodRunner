@@ -109,7 +109,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.logout -> {
-                    val builder = AlertDialog.Builder(this@MainActivity)
+                    val builder: android.app.AlertDialog.Builder =
+                        android.app.AlertDialog.Builder(this, R.style.AlertDialogStyle)
                     builder.setTitle("Confirmation")
                         .setMessage("Are you sure you want exit?")
                         .setPositiveButton("Yes") { _, _ ->

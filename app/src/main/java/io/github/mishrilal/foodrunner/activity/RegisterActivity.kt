@@ -191,7 +191,8 @@ class RegisterActivity : AppCompatActivity() {
             queue.add(jsonObjectRequest)
         } else {
             progressBarLogin.visibility = View.GONE
-            val dialog = AlertDialog.Builder(this@RegisterActivity)
+            val dialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             dialog.setTitle("Error")
             dialog.setMessage("Internet Connection Found")
             dialog.setPositiveButton("Open Settings") { text, listener ->

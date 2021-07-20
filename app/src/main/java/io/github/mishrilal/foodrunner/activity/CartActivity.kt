@@ -1,5 +1,6 @@
 package io.github.mishrilal.foodrunner.activity
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
@@ -221,7 +222,8 @@ class CartActivity : AppCompatActivity() {
             }
         } else {
             progressBarCart.visibility = View.GONE
-            val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be establish!")
             alterDialog.setPositiveButton("Open Settings") { text, listener ->

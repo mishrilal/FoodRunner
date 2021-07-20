@@ -1,5 +1,6 @@
 package io.github.mishrilal.foodrunner.activity
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -142,8 +143,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
                             ).show()
                         }
                     } else {
-                        val alterDialog =
-                            androidx.appcompat.app.AlertDialog.Builder(this@ForgotPasswordActivity)
+                        val alterDialog: AlertDialog.Builder =
+                            AlertDialog.Builder(this, R.style.AlertDialogStyle)
 
                         alterDialog.setTitle("No Internet")
                         alterDialog.setMessage("Internet Connection can't be established!")
@@ -188,8 +189,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     override fun onResume() {
         if (!ConnectionManager().isNetworkAvailable(this@ForgotPasswordActivity)) {
-            val alterDialog =
-                androidx.appcompat.app.AlertDialog.Builder(this@ForgotPasswordActivity)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
             alterDialog.setMessage("Internet Connection can't be established!")
             alterDialog.setPositiveButton("Open Settings")

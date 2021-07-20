@@ -210,7 +210,8 @@ class RestaurantDetailsActivity : AppCompatActivity() {
             }
             queue.add(jsonRequest)
         } else {
-            val dialog = AlertDialog.Builder(this@RestaurantDetailsActivity)
+            val dialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             dialog.setTitle("Error")
             dialog.setMessage("Internet Connection not Found")
             dialog.setPositiveButton("Open Settings") { text, listener ->
@@ -293,9 +294,8 @@ class RestaurantDetailsActivity : AppCompatActivity() {
 
 
         if (orderList.size > 0) {
-
-
-            val alterDialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(this, R.style.AlertDialogStyle)
             alterDialog.setTitle("Alert!")
             alterDialog.setMessage("Going back will remove everything from cart")
             alterDialog.setPositiveButton("Okay") { text, listener ->
