@@ -18,12 +18,12 @@
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBarLogin"
-        android:indeterminate="true"
-        android:background="@color/colorSecondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:visibility="gone"/>
+        android:background="@color/colorSecondary"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"

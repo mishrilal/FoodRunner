@@ -47,9 +47,10 @@ class AllRestaurantsAdapter(private var restaurants: ArrayList<Restaurants>, val
         }
         p0.restaurantName.text = resObject.name
         p0.rating.text = resObject.rating
-        val costForTwo = "\u20B9${resObject.costForOne.toString()}/person"
+        val costForTwo = "\u20B9${resObject.costForOne}/person"
         p0.cost.text = costForTwo
-        Picasso.get().load(resObject.imageUrl).error(R.drawable.ic_default_res).into(p0.resThumbnail)
+        Picasso.get().load(resObject.imageUrl).error(R.drawable.ic_default_res)
+            .into(p0.resThumbnail)
 
 
         val listOfFavourites = GetAllFavAsyncTask(context).execute().get()

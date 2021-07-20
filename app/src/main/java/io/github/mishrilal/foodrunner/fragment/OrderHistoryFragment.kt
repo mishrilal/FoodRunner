@@ -162,7 +162,7 @@ class OrderHistoryFragment : Fragment() {
                 startActivity(settingsIntent)
             }
             alterDialog.setNeutralButton("Retry")
-            {_,_ ->
+            { _, _ ->
                 onResume()
             }
             alterDialog.setNegativeButton("Exit")

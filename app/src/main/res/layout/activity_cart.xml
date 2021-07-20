@@ -16,36 +16,36 @@
             android:id="@+id/txtOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ordering_from"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="65dp"
+            android:text="@string/ordering_from"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:layout_marginStart="10dp"/>
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txtResName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorSecondary"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="65dp"
             android:layout_toEndOf="@id/txtOrder"
-            android:layout_marginStart="10dp"/>
+            android:textColor="@color/colorSecondary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_below="@id/txtResName"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:id="@+id/recyclerView"
-            android:padding="10dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtResName"
+            android:layout_marginTop="10dp"
+            android:padding="10dp" />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinateLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/coordinateLayout">
+            android:layout_height="match_parent">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
@@ -57,19 +57,19 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="?attr/actionBarSize"
                     android:background="@color/colorPrimaryDark"
-                    app:layout_scrollFlags="scroll|enterAlways"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:layout_scrollFlags="scroll|enterAlways" />
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progressBarCart"
-                    android:indeterminate="true"
-                    android:background="@color/colorSecondary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:visibility="gone"/>
+                    android:background="@color/colorSecondary"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
 
             </com.google.android.material.appbar.AppBarLayout>
 
@@ -77,7 +77,7 @@
                 android:id="@+id/frameLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -85,14 +85,14 @@
             android:id="@+id/btnOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorSecondary"
-            app:backgroundTint="@color/colorSecondary"
-            android:background="@color/colorSecondary"
             android:layout_alignParentBottom="true"
+            android:background="@color/colorSecondary"
+            android:backgroundTint="@color/colorSecondary"
             android:text="@string/place_order"
             android:textColor="#ffffff"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            app:backgroundTint="@color/colorSecondary" />
 
     </RelativeLayout>
 

@@ -35,15 +35,15 @@ class CartActivity : AppCompatActivity() {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var coordinateLayout: CoordinatorLayout
     lateinit var toolbar: Toolbar
-    val orderList=ArrayList<RestaurantsDetails>()
+    val orderList = ArrayList<RestaurantsDetails>()
     lateinit var progressBarCart: ProgressBar
     lateinit var rlMyCart: RelativeLayout
     lateinit var txtResName: TextView
     private lateinit var recyclerAdapter: CartRecyclerAdapter
     lateinit var frameLayout: FrameLayout
     lateinit var btnOrder: Button
-    lateinit var resId:String
-    lateinit var resName:String
+    lateinit var resId: String
+    lateinit var resName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,14 +61,14 @@ class CartActivity : AppCompatActivity() {
 
         progressBarCart = findViewById(R.id.progressBarCart)
         rlMyCart = findViewById(R.id.rlMyCart)
-        btnOrder=findViewById(R.id.btnOrder)
+        btnOrder = findViewById(R.id.btnOrder)
 
         setUpToolbar()
 
         if (intent != null) {
             resId = intent.getStringExtra("resId").toString()
-            resName = intent.getStringExtra("resName")as String
-            txtResName.text=resName
+            resName = intent.getStringExtra("resName") as String
+            txtResName.text = resName
         } else {
             finish()
             Toast.makeText(
@@ -91,34 +91,38 @@ class CartActivity : AppCompatActivity() {
     }
 
 
-    class GetItemsDBAsync(context: Context): AsyncTask<Void, Void, List<OrderEntity>>()
-    {
-        val db= Room.databaseBuilder( context, RestaurantDatabase::class.java,"restaurants-db").build()
+    class GetItemsDBAsync(context: Context) : AsyncTask<Void, Void, List<OrderEntity>>() {
+        val db =
+            Room.databaseBuilder(context, RestaurantDatabase::class.java, "restaurants-db").build()
+
         override fun doInBackground(vararg params: Void?): List<OrderEntity> {
             return db.orderDao().getAllOrders()
         }
     }
 
-    private  fun cartList() {
+    private fun cartList() {
 
-        val list=GetItemsDBAsync(applicationContext).execute().get()
-        for(element in list){
+        val list = GetItemsDBAsync(applicationContext).execute().get()
+        for (element in list) {
 
-            orderList.addAll(Gson().fromJson(element.foodItems,Array<RestaurantsDetails>::class.java).asList())
+            orderList.addAll(
+                Gson().fromJson(
+                    element.foodItems,
+                    Array<RestaurantsDetails>::class.java
+                ).asList()
+            )
         }
-        if(orderList.isEmpty())
-        {
-            rlMyCart.visibility= View.GONE
-        }
-        else{
-            rlMyCart.visibility= View.VISIBLE
+        if (orderList.isEmpty()) {
+            rlMyCart.visibility = View.GONE
+        } else {
+            rlMyCart.visibility = View.VISIBLE
         }
 
-        recyclerAdapter= CartRecyclerAdapter(orderList,this@CartActivity)
+        recyclerAdapter = CartRecyclerAdapter(orderList, this@CartActivity)
         layoutManager = LinearLayoutManager(this@CartActivity)
-        recyclerView.layoutManager=layoutManager
-        recyclerView.itemAnimator= DefaultItemAnimator()
-        recyclerView.adapter=recyclerAdapter
+        recyclerView.layoutManager = layoutManager
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.adapter = recyclerAdapter
     }
 
     private fun placeOrder() {
@@ -134,7 +138,7 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
-    private  fun setUpToolbar() {
+    private fun setUpToolbar() {
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -144,7 +148,7 @@ class CartActivity : AppCompatActivity() {
 
     }
 
-    private  fun sendRequest() {
+    private fun sendRequest() {
 
         val queue = Volley.newRequestQueue(this@CartActivity)
         val url = "http://13.235.250.119/v2/place_order/fetch_result/"
@@ -162,7 +166,7 @@ class CartActivity : AppCompatActivity() {
                     ) as String
                 )
 
-                jsonParams.put("restaurant_id", resId.toString() as String)
+                jsonParams.put("restaurant_id", resId.toString())
                 var total = 0
                 for (i in 0 until orderList.size) {
                     total += orderList[i].dishPrice.toInt()
@@ -183,7 +187,7 @@ class CartActivity : AppCompatActivity() {
                         if (success) {
                             ClearDBAsync(applicationContext, resId.toString()).execute().get()
                             ResDetailRecyclerAdapter.isCartEmpty = true
-                            val intent= Intent(this,PlaceOrderActivity::class.java)
+                            val intent = Intent(this, PlaceOrderActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
                         } else {
@@ -240,8 +244,10 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
-    class ClearDBAsync(context: Context, val resId:String): AsyncTask<Void, Void, Boolean>(){
-        val db= Room.databaseBuilder(context,RestaurantDatabase::class.java,"restaurants-db").build()
+    class ClearDBAsync(context: Context, val resId: String) : AsyncTask<Void, Void, Boolean>() {
+        val db =
+            Room.databaseBuilder(context, RestaurantDatabase::class.java, "restaurants-db").build()
+
         override fun doInBackground(vararg params: Void?): Boolean {
             db.orderDao().deleteOrders(resId)
             db.close()
@@ -262,7 +268,7 @@ class CartActivity : AppCompatActivity() {
         alterDialog.setMessage("Going back will remove everything from cart")
         alterDialog.setPositiveButton("Okay") { text, listener ->
             ClearDBAsync(applicationContext, resId.toString()).execute().get()
-            ResDetailRecyclerAdapter.isCartEmpty=true
+            ResDetailRecyclerAdapter.isCartEmpty = true
             super.onBackPressed()
         }
         alterDialog.setNegativeButton("No") { text, listener ->
@@ -273,7 +279,7 @@ class CartActivity : AppCompatActivity() {
 
     override fun onStop() {
         ClearDBAsync(applicationContext, resId.toString()).execute().get()
-        ResDetailRecyclerAdapter.isCartEmpty=true
+        ResDetailRecyclerAdapter.isCartEmpty = true
         super.onStop()
     }
 }

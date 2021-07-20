@@ -47,7 +47,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
         btnReset.setOnClickListener {
 
-            etEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            etEmail.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
             if (etMobileNumber.text.isBlank()) {
                 etMobileNumber.error = "Mobile Number Missing"

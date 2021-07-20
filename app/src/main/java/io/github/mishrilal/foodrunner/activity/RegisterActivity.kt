@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener {
 
-            etConfirmPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            etConfirmPassword.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
 
             if (etFullName.text.toString().isEmpty())

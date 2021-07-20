@@ -99,7 +99,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
         }
 
         imgResIsFav.setOnClickListener {
-            if(intent != null) {
+            if (intent != null) {
 
                 val restaurantEntity = RestaurantEntity(
                     intent.getIntExtra("id", 100),
@@ -228,7 +228,7 @@ class RestaurantDetailsActivity : AppCompatActivity() {
             dialog.show()
         }
 
-        toolbar.setNavigationOnClickListener() {
+        toolbar.setNavigationOnClickListener {
             finish()
         }
     }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Food<u>Runner</u></string>
     <string name="Rs">\u20B9200/person</string>
     <string name="mobile_number">Mobile Number</string>
@@ -6,11 +6,7 @@
     <string name="log_in">Login</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="register_yourself"><u>Don\'t have an account? Sign up now</u></string>
-    <string name="enter_message">Enter Message</string>
-    <string name="send">Send</string>
-    <string name="no_message">No Message</string>
     <string name="preference_file_name">FoodRunner Preferences</string>
-    <string name="log_out">Log Out</string>
     <string name="reset_password">Next</string>
     <string name="enter_full_name">Full Name</string>
     <string name="enter_email_address">Email Address</string>
@@ -18,34 +14,17 @@
     <string name="register">Register</string>
     <string name="address">New Delhi</string>
     <string name="email_address">Email Address</string>
-    <string name="registration_details"><u>Registration Details</u></string>
-    <string name="login_details"><u>Login Details</u></string>
-    <string name="navigation_drawer">Navigation Drawer</string>
     <string name="home">Home</string>
     <string name="my_profile">My Profile</string>
-    <string name="favourite_restaurants">Favourite Restaurants</string>
     <string name="faqs">FAQs</string>
-    <string name="open_drawer">Open Drawer</string>
-    <string name="close_drawer">Close Drawer</string>
 
-    <string name="cart">Cart</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
-    <string name="filter">Filter</string>
     <string name="restaurant_name">Restaurant</string>
     <string name="name">John Doe</string>
-    <string name="phone">Phone</string>
-    <string name="profile_details">Your Profile Details are listed below:</string>
-    <string name="go_to_cart">Proceed to Cart</string>
-    <string name="confirm_order">Place Order</string>
-    <string name="action_search">Search</string>
     <string name="search_restaurants">Search Restaurants</string>
     <string name="favorites">Favorite Restaurants</string>
-    <string name="channel_name">Android Training</string>
-    <string name="channel_description">This notification confirms that the order is placed</string>
     <string name="dummy_phone">+91-1115555555</string>
-    <string name="empty_cart">Your cart is currently empty</string>
     <string name="no_favorites">You do not have any favorite restaurants</string>
     <string name="no_orders">You haven\'t placed any orders yet</string>
     <string name="faq_answer_one">A.1 You will be taught using pre-recorded videos and text tutorials. The training has
@@ -67,13 +46,7 @@
         take the final test.
     </string>
     <string name="email">johndoe@doe.gmail.com</string>
-    <string name="enter_mobile_forgot_password">Enter your registered mobile number and email below:</string>
-    <string name="next">Next</string>
     <string name="new_password">New Password</string>
-    <string name="submit">Submit</string>
-    <string name="order_placed">Your order has been successfully placed!</string>
-    <string name="order_history_static_text">Your previous orders are listed below :</string>
-    <string name="dummy_date">20/12/2018</string>
     <string name="logout">LogOut</string>
     <string name="proceed_to_cart">Proceed to Cart</string>
     <string name="enter_password">Enter Password</string>
@@ -85,14 +58,8 @@
     <string name="order_history">Order History</string>
     <string name="your_previous_orders">Your previous orders are listed below:</string>
     <string name="no_restaurant_found">No Restaurant Found</string>
-    <string name="rating">Rating</string>
     <string name="cost_low_to_high">Cost (Low to High)</string>
     <string name="cost_high_to_low">Cost (High to Low)</string>
     <string name="rating_high_to_low">Rating (High to Low)</string>
     <string name="rating_low_to_high">Rating (Low to High)</string>
-    <array name="filters">
-        <item>Cost(Low to High)</item>
-        <item>Cost(High to Low)</item>
-        <item>Rating</item>
-    </array>
 </resources>

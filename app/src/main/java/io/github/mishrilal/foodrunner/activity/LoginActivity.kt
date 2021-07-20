@@ -62,17 +62,16 @@ class LoginActivity : AppCompatActivity() {
         progressBarLogin = findViewById(R.id.progressBarLogin)
 
         btnLogin.setOnClickListener {
-            if(etMobileNumber.text.isBlank() && etPassword.text.isBlank()) {
+            if (etMobileNumber.text.isBlank() && etPassword.text.isBlank()) {
                 etMobileNumber.error = "Enter Mobile Number"
                 etPassword.error = "Enter Password"
-            }
-            else if (etMobileNumber.text.isBlank()) {
+            } else if (etMobileNumber.text.isBlank()) {
                 etMobileNumber.error = "Enter Mobile Number"
             } else if (etPassword.text.isBlank()) {
                 etPassword.error = "Enter Password"
             } else {
                 progressBarLogin.visibility = View.VISIBLE
-                etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
                 val mobileNumber = etMobileNumber.text.toString()
                 val password = etPassword.text.toString()

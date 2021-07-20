@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.mishrilal.foodrunner.R
 import io.github.mishrilal.foodrunner.model.RestaurantsDetails
 
-class ResDetailRecyclerAdapter(val context: Context, val itemList:ArrayList<RestaurantsDetails>, private val listener: OnItemClickListener
+class ResDetailRecyclerAdapter(
+    val context: Context,
+    val itemList: ArrayList<RestaurantsDetails>,
+    private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<ResDetailRecyclerAdapter.RestaurantsDetailsViewHolder>() {
 
     companion object {
@@ -20,18 +23,22 @@ class ResDetailRecyclerAdapter(val context: Context, val itemList:ArrayList<Rest
     }
 
 
-    class RestaurantsDetailsViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class RestaurantsDetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val txtCount: TextView =view.findViewById(R.id.txtResID)
-        val txtDishName: TextView =view.findViewById(R.id.txtDishName)
-        val txtPrice: TextView =view.findViewById(R.id.txtDishPrice)
-        val imgAddToCart: ImageView =view.findViewById(R.id.imgAddToCart)
-        val imgRemoveFromCart: ImageView =view.findViewById(R.id.imgRemoveFromCart)
+        val txtCount: TextView = view.findViewById(R.id.txtResID)
+        val txtDishName: TextView = view.findViewById(R.id.txtDishName)
+        val txtPrice: TextView = view.findViewById(R.id.txtDishPrice)
+        val imgAddToCart: ImageView = view.findViewById(R.id.imgAddToCart)
+        val imgRemoveFromCart: ImageView = view.findViewById(R.id.imgRemoveFromCart)
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantsDetailsViewHolder {
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.recycler_res_details_single_row,parent,false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RestaurantsDetailsViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recycler_res_details_single_row, parent, false)
         return RestaurantsDetailsViewHolder(view)
     }
 
@@ -41,10 +48,9 @@ class ResDetailRecyclerAdapter(val context: Context, val itemList:ArrayList<Rest
 
 
     interface OnItemClickListener {
-        fun onAddItemClick(dishObject:RestaurantsDetails)
-        fun onRemoveItemClick(dishObject:RestaurantsDetails)
+        fun onAddItemClick(dishObject: RestaurantsDetails)
+        fun onRemoveItemClick(dishObject: RestaurantsDetails)
     }
-
 
 
     override fun onBindViewHolder(holder: RestaurantsDetailsViewHolder, position: Int) {
@@ -66,6 +72,7 @@ class ResDetailRecyclerAdapter(val context: Context, val itemList:ArrayList<Rest
             listener.onRemoveItemClick(restaurantsDetails)
         }
     }
+
     override fun getItemViewType(position: Int): Int {
         return position
     }

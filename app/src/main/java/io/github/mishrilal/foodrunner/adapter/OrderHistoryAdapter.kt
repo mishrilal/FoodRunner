@@ -15,7 +15,8 @@ import io.github.mishrilal.foodrunner.model.RestaurantsDetails
 import java.text.SimpleDateFormat
 import java.util.*
 
-class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList<OrderDetails>) : RecyclerView.Adapter<OrderHistoryAdapter.OrderHistoryViewHolder>() {
+class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList<OrderDetails>) :
+    RecyclerView.Adapter<OrderHistoryAdapter.OrderHistoryViewHolder>() {
 
     class OrderHistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtResName: TextView = view.findViewById(R.id.txtResName)
@@ -26,7 +27,8 @@ class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderHistoryViewHolder {
         val view =
-            LayoutInflater.from(context).inflate(R.layout.recycler_orderhistory_single_row, parent, false)
+            LayoutInflater.from(context)
+                .inflate(R.layout.recycler_orderhistory_single_row, parent, false)
         return OrderHistoryViewHolder(view)
     }
 
@@ -44,7 +46,7 @@ class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList
             val foodJson = orderHistory.foodItem.getJSONObject(i)
             totalPrice += foodJson.getString("cost").toInt()
         }
-        holder.txtTotalPrice.text =  "Total: \u20B9$totalPrice"
+        holder.txtTotalPrice.text = "Total: \u20B9$totalPrice"
         println("Order History: $orderHistory, Order List: $orderList")
         setUpRecycler(holder.recyclerView, orderHistory)
     }
@@ -69,7 +71,7 @@ class OrderHistoryAdapter(val context: Context, private val orderList: ArrayList
     }
 
     fun formatDate(dateString: String): String? {
-        val input= SimpleDateFormat("dd-MM-yy HH:mm:ss", Locale.ENGLISH)
+        val input = SimpleDateFormat("dd-MM-yy HH:mm:ss", Locale.ENGLISH)
         val date: Date = input.parse(dateString) as Date
         val output = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
         return output.format(date)

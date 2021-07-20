@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface OrderDao{
+interface OrderDao {
 
     @Insert
     fun insertOrder(orderEntity: OrderEntity)

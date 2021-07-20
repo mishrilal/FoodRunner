@@ -4,7 +4,6 @@
     android:layout_height="match_parent">
 
     <RadioGroup
-        android:id="@+id/groupradio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -37,6 +36,7 @@
             android:padding="5dp"
             android:text="@string/rating_high_to_low"
             android:textSize="20sp" />
+
         <RadioButton
             android:id="@+id/radioRatingLowToHigh"
             android:layout_width="fill_parent"

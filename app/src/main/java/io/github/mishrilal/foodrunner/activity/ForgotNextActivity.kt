@@ -32,7 +32,7 @@ class ForgotNextActivity : AppCompatActivity() {
 
         title = "Forgot Password Data"
 
-        if(intent != null) {
+        if (intent != null) {
             mobileNumber = intent.getStringExtra("mobile_number")
         }
 
@@ -44,7 +44,7 @@ class ForgotNextActivity : AppCompatActivity() {
         btnConfirm = findViewById(R.id.btnConfirm)
         progressBarConfirm = findViewById(R.id.progressBarConfirm)
 
-        btnConfirm.setOnClickListener{
+        btnConfirm.setOnClickListener {
             if (etOTP.text.isBlank()) {
                 etOTP.error = "OTP missing"
             } else {
