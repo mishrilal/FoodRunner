@@ -23,6 +23,7 @@
         <item name="android:windowBackground">@drawable/bg_alert_dialog</item>
         <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
     </style>
 
     <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
@@ -31,5 +32,9 @@
 
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/teal_700</item>
     </style>
 </resources>

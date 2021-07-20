@@ -171,7 +171,6 @@ class HomeFragment(val contextParam: Context) : Fragment() {
                     .show()
             }
         } else {
-
             val alterDialog: AlertDialog.Builder =
                 AlertDialog.Builder(activity as Context, R.style.AlertDialogStyle)
             alterDialog.setTitle("No Internet")
@@ -258,6 +257,10 @@ class HomeFragment(val contextParam: Context) : Fragment() {
             { _, _ ->
                 val settingsIntent = Intent(Settings.ACTION_SETTINGS)
                 startActivity(settingsIntent)
+            }
+            alterDialog.setNeutralButton("Retry")
+            {_,_ ->
+                onResume()
             }
             alterDialog.setNegativeButton("Exit")
             { _, _ ->

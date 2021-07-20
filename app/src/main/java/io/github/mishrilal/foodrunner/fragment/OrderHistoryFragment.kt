@@ -1,8 +1,12 @@
 package io.github.mishrilal.foodrunner.fragment
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.Settings
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +24,7 @@ import com.android.volley.toolbox.Volley
 import io.github.mishrilal.foodrunner.R
 import io.github.mishrilal.foodrunner.adapter.OrderHistoryAdapter
 import io.github.mishrilal.foodrunner.model.OrderDetails
+import io.github.mishrilal.foodrunner.util.ConnectionManager
 
 class OrderHistoryFragment : Fragment() {
 
@@ -50,8 +56,30 @@ class OrderHistoryFragment : Fragment() {
                 Context.MODE_PRIVATE
             )
         userId = sharedPreferences.getString("user_id", null).toString()
-        sendRequest(userId)
-
+//        if (ConnectionManager().isNetworkAvailable(activity as Context)) {
+//            sendRequest(userId)
+//        } else {
+//            val alterDialog: AlertDialog.Builder =
+//                AlertDialog.Builder(activity, R.style.AlertDialogStyle)
+//            alterDialog.setTitle("No Internet")
+//            alterDialog.setMessage("Internet Connection can't be established!")
+//            alterDialog.setPositiveButton("Open Settings")
+//            { _, _ ->
+//                val settingsIntent = Intent(Settings.ACTION_SETTINGS)
+//                startActivity(settingsIntent)
+//            }
+//            alterDialog.setNeutralButton("Retry")
+//            {_,_ ->
+//                onResume()
+//            }
+//            alterDialog.setNegativeButton("Exit")
+//            { _, _ ->
+//                ActivityCompat.finishAffinity(activity as Activity)
+//            }
+//            alterDialog.setCancelable(false)
+//            alterDialog.create()
+//            alterDialog.show()
+//        }
         return view
     }
 
@@ -118,5 +146,33 @@ class OrderHistoryFragment : Fragment() {
             }
         }
         queue.add(jsonObjectRequest)
+    }
+
+    override fun onResume() {
+        if (ConnectionManager().isNetworkAvailable(activity as Context)) {
+            sendRequest(userId)
+        } else {
+            val alterDialog: AlertDialog.Builder =
+                AlertDialog.Builder(activity, R.style.AlertDialogStyle)
+            alterDialog.setTitle("No Internet")
+            alterDialog.setMessage("Internet Connection can't be established!")
+            alterDialog.setPositiveButton("Open Settings")
+            { _, _ ->
+                val settingsIntent = Intent(Settings.ACTION_SETTINGS)
+                startActivity(settingsIntent)
+            }
+            alterDialog.setNeutralButton("Retry")
+            {_,_ ->
+                onResume()
+            }
+            alterDialog.setNegativeButton("Exit")
+            { _, _ ->
+                ActivityCompat.finishAffinity(activity as Activity)
+            }
+            alterDialog.setCancelable(false)
+            alterDialog.create()
+            alterDialog.show()
+        }
+        super.onResume()
     }
 }
