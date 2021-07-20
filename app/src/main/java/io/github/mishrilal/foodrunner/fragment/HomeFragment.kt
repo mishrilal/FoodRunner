@@ -10,25 +10,21 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import io.github.mishrilal.foodrunner.R
 import io.github.mishrilal.foodrunner.adapter.AllRestaurantsAdapter
 import io.github.mishrilal.foodrunner.model.Restaurants
 import io.github.mishrilal.foodrunner.util.ConnectionManager
-import io.github.mishrilal.foodrunner.util.FETCH_RESTAURANTS
+import kotlinx.android.synthetic.main.sort_radio_button.view.*
 import org.json.JSONException
-import org.json.JSONObject
 import java.util.*
 import kotlin.Comparator
 import kotlin.collections.HashMap
@@ -50,14 +46,14 @@ class HomeFragment(val contextParam: Context) : Fragment() {
         if (rest1.rating.compareTo(rest2.rating, true) == 0) {
             rest1.name.compareTo(rest2.name, true)
         } else {
-            rest1.rating.compareTo(rest2.name, true)
+            rest1.rating.compareTo(rest2.rating, true)
         }
 
     }
 
     var costComparator = Comparator<Restaurants>
     { rest1, rest2 ->
-        rest1.costForTwo.toString().compareTo(rest2.costForTwo.toString(), true)
+        rest1.costForOne.toString().compareTo(rest2.costForOne.toString(), true)
     }
 
     override fun onCreateView(
@@ -197,47 +193,51 @@ class HomeFragment(val contextParam: Context) : Fragment() {
         inflater.inflate(R.menu.menu_home, menu)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val id = item.itemId
-//
-//        when (id) {
-//
-//            R.id.sort -> {
-//                radioButtonView = View.inflate(
-//                    contextParam,
-//                    R.layout.sort_radio_button,
-//                    null
-//                )     //radiobutton view for sorting display
-//                val alterDialog = androidx.appcompat.app.AlertDialog.Builder(activity as Context)
-//                alterDialog.setTitle("Sort By?")
-//                alterDialog.setView(radioButtonView)
-//                alterDialog.setPositiveButton("OK")
-//                { _, _ ->
-//                    if (radioButtonView.radioHighToLow.isChecked) {
-//                        Collections.sort(restaurantInfoList, costComparator)
-//                        restaurantInfoList.reverse()
-//                        dashboardAdapter.notifyDataSetChanged()     //update the adapter of changes
-//                    }
-//                    if (radioButtonView.radioLowToHigh.isChecked) {
-//                        Collections.sort(restaurantInfoList, costComparator)
-//                        dashboardAdapter.notifyDataSetChanged()     //updates the adapter of changes
-//                    }
-//                    if (radioButtonView.radioRating.isChecked) {
-//                        Collections.sort(restaurantInfoList, ratingComparator)
-//                        restaurantInfoList.reverse()
-//                        dashboardAdapter.notifyDataSetChanged()
-//                    }
-//                }
-//                alterDialog.setNegativeButton("CANCEL")
-//                { _, _ ->
-//                    //do nothing
-//                }
-//                alterDialog.create()
-//                alterDialog.show()
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        when (id) {
+
+            R.id.sort -> {
+                radioButtonView = View.inflate(
+                    contextParam,
+                    R.layout.sort_radio_button,
+                    null
+                )     //radiobutton view for sorting display
+                val alterDialog = androidx.appcompat.app.AlertDialog.Builder(activity as Context)
+                alterDialog.setTitle("Sort By?")
+                alterDialog.setView(radioButtonView)
+                alterDialog.setPositiveButton("OK")
+                { _, _ ->
+                    if (radioButtonView.radioHighToLow.isChecked) {
+                        Collections.sort(restaurantInfoList, costComparator)
+                        restaurantInfoList.reverse()
+                        dashboardAdapter.notifyDataSetChanged()     //update the adapter of changes
+                    }
+                    if (radioButtonView.radioLowToHigh.isChecked) {
+                        Collections.sort(restaurantInfoList, costComparator)
+                        dashboardAdapter.notifyDataSetChanged()     //updates the adapter of changes
+                    }
+                    if (radioButtonView.radioRatingHighToLow.isChecked) {
+                        Collections.sort(restaurantInfoList, ratingComparator)
+                        restaurantInfoList.reverse()
+                        dashboardAdapter.notifyDataSetChanged()
+                    }
+                    if (radioButtonView.radioRatingLowToHigh.isChecked) {
+                        Collections.sort(restaurantInfoList, ratingComparator)
+                        dashboardAdapter.notifyDataSetChanged()
+                    }
+                }
+                alterDialog.setNegativeButton("CANCEL")
+                { _, _ ->
+                    //do nothing
+                }
+                alterDialog.create()
+                alterDialog.show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     override fun onResume() {

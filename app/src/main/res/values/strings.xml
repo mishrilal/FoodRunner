@@ -88,6 +88,8 @@
     <string name="rating">Rating</string>
     <string name="cost_low_to_high">Cost (Low to High)</string>
     <string name="cost_high_to_low">Cost (High to Low)</string>
+    <string name="rating_high_to_low">Rating (High to Low)</string>
+    <string name="rating_low_to_high">Rating (Low to High)</string>
     <array name="filters">
         <item>Cost(Low to High)</item>
         <item>Cost(High to Low)</item>
