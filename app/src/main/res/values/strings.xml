@@ -84,6 +84,10 @@
     <string name="date">05/11/2012</string>
     <string name="order_history">Order History</string>
     <string name="your_previous_orders">Your previous orders are listed below:</string>
+    <string name="no_restaurant_found">No Restaurant Found</string>
+    <string name="rating">Rating</string>
+    <string name="cost_low_to_high">Cost (Low to High)</string>
+    <string name="cost_high_to_low">Cost (High to Low)</string>
     <array name="filters">
         <item>Cost(Low to High)</item>
         <item>Cost(High to Low)</item>

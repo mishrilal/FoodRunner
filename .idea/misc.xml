@@ -58,9 +58,11 @@
         <entry key="app/src/main/res/layout/recycler_orderhistory_single_row.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/layout/recycler_res_details_single_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recylcer_restaurant_single_row.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/layout/sort_radio_button.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/menu/drawer_item.xml" value="0.20315315315315316" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/menu/menu_drawer.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/menu/menu_home.xml" value="0.2153153153153153" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1287037037037037" />
       </map>
     </option>

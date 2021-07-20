@@ -77,10 +77,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
 
                 R.id.home -> {
-                    val homeFragment = HomeFragment()
-                    fragmentTransaction.replace(R.id.frame, homeFragment)
-                    fragmentTransaction.commit()
-                    supportActionBar?.title = "All Restaurants"
+                    displayHome()
                 }
 
                 R.id.myProfile -> {
@@ -137,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun displayHome() {
-        val fragment = HomeFragment()
+        val fragment = HomeFragment(this)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
         transaction.commit()
@@ -194,7 +191,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openHome() {
-        val fragment = HomeFragment()
+        val fragment = HomeFragment(this)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
         transaction.commit()

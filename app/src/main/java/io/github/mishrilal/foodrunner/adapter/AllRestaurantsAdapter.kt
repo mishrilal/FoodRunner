@@ -99,6 +99,11 @@ class AllRestaurantsAdapter(private var restaurants: ArrayList<Restaurants>, val
         }
     }
 
+    fun filterList(filteredList: ArrayList<Restaurants>) {
+        restaurants = filteredList
+        notifyDataSetChanged()
+    }
+
     class AllRestaurantsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val resThumbnail = view.findViewById(R.id.imgRestaurantThumbnail) as ImageView
         val restaurantName = view.findViewById(R.id.txtRestaurantName) as TextView
