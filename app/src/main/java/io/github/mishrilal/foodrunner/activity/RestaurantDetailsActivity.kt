@@ -221,7 +221,6 @@ class RestaurantDetailsActivity : AppCompatActivity() {
 
             }
             dialog.setNegativeButton("Exit") { text, listener ->
-
                 ActivityCompat.finishAffinity(this@RestaurantDetailsActivity)
             }
             dialog.create()
