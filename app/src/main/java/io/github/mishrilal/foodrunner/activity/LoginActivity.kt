@@ -4,12 +4,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.android.volley.Request
 import com.android.volley.Response
@@ -62,13 +62,17 @@ class LoginActivity : AppCompatActivity() {
         progressBarLogin = findViewById(R.id.progressBarLogin)
 
         btnLogin.setOnClickListener {
+            progressBarLogin.visibility = View.VISIBLE
             if (etMobileNumber.text.isBlank() && etPassword.text.isBlank()) {
                 etMobileNumber.error = "Enter Mobile Number"
                 etPassword.error = "Enter Password"
+                progressBarLogin.visibility = View.GONE
             } else if (etMobileNumber.text.isBlank()) {
                 etMobileNumber.error = "Enter Mobile Number"
+                progressBarLogin.visibility = View.GONE
             } else if (etPassword.text.isBlank()) {
                 etPassword.error = "Enter Password"
+                progressBarLogin.visibility = View.GONE
             } else {
                 progressBarLogin.visibility = View.VISIBLE
                 etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE)
@@ -127,18 +131,25 @@ class LoginActivity : AppCompatActivity() {
 
                                             savePreferences()
                                             println("ID: ${response.getString("user_id")}")
-                                            progressBarLogin.visibility = View.GONE
                                             startActivity(intent)
                                             finish()
                                         } else {
                                             progressBarLogin.visibility = View.GONE
                                             val responseMessageServer =
                                                 data.getString("errorMessage")
-                                            Toast.makeText(
-                                                this@LoginActivity,
-                                                responseMessageServer,
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+
+                                            if (responseMessageServer == "Mobile Number not registered") {
+                                                etMobileNumber.error =
+                                                    "Mobile Number not registered"
+                                            } else if (responseMessageServer == "Incorrect password") {
+                                                etPassword.error = "Incorrect Password"
+                                            } else {
+                                                Toast.makeText(
+                                                    this@LoginActivity,
+                                                    responseMessageServer,
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+                                            }
                                         }
                                     } catch (e: JSONException) {
                                         e.printStackTrace()
