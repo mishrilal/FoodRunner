@@ -297,7 +297,7 @@ class CartActivity : AppCompatActivity() {
 
     fun createNotification() {
         val notificationId = sharedPreferences.getInt("notification_id", 1)
-
+        val GROUP_KEY_WORK_EMAIL = "com.android.example.WORK_EMAIL"
         sharedPreferences.edit().putInt("notification_id", notificationId + 1).apply()
 
         val channelId = "personal_notification"
@@ -311,6 +311,7 @@ class CartActivity : AppCompatActivity() {
                     .bigText("Ordered from $resName and amounting to Rs.$sum .Thank you for ordering from FoodRunner. Stay Safe!")
             )
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setGroup(GROUP_KEY_WORK_EMAIL)
             .setAutoCancel(true)
 
         val notificationManagerCompat = NotificationManagerCompat.from(this)
