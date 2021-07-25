@@ -35,7 +35,7 @@ class HomeFragment(val contextParam: Context) : Fragment() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var dashboardAdapter: AllRestaurantsAdapter
+    lateinit var homeAdapter: AllRestaurantsAdapter
     lateinit var etSearch: EditText
     lateinit var radioButtonView: View
     lateinit var progressDialog: RelativeLayout
@@ -87,7 +87,7 @@ class HomeFragment(val contextParam: Context) : Fragment() {
             if (filteredList.size == 0) {
                 rlNoRestaurantFound.visibility = View.VISIBLE
             }
-            dashboardAdapter.filterList(filteredList)
+            homeAdapter.filterList(filteredList)
         }
 
         etSearch.addTextChangedListener(object : TextWatcher {
@@ -134,11 +134,11 @@ class HomeFragment(val contextParam: Context) : Fragment() {
                                 )
                                 restaurantInfoList.add(restaurantObject)
 
-                                dashboardAdapter = AllRestaurantsAdapter(
+                                homeAdapter = AllRestaurantsAdapter(
                                     restaurantInfoList,
                                     activity as Context
                                 )
-                                recyclerView.adapter = dashboardAdapter
+                                recyclerView.adapter = homeAdapter
                                 recyclerView.layoutManager = layoutManager
                             }
                         }
@@ -215,21 +215,21 @@ class HomeFragment(val contextParam: Context) : Fragment() {
                 { _, _ ->
                     if (radioButtonView.radioHighToLow.isChecked) {
                         Collections.sort(restaurantInfoList, costComparator)
-                        restaurantInfoList.reverse()
-                        dashboardAdapter.notifyDataSetChanged()     //update the adapter of changes
+                        homeAdapter.notifyDataSetChanged()
                     }
                     if (radioButtonView.radioLowToHigh.isChecked) {
                         Collections.sort(restaurantInfoList, costComparator)
-                        dashboardAdapter.notifyDataSetChanged()     //updates the adapter of changes
+                        restaurantInfoList.reverse()
+                        homeAdapter.notifyDataSetChanged()
                     }
                     if (radioButtonView.radioRatingHighToLow.isChecked) {
                         Collections.sort(restaurantInfoList, ratingComparator)
                         restaurantInfoList.reverse()
-                        dashboardAdapter.notifyDataSetChanged()
+                        homeAdapter.notifyDataSetChanged()
                     }
                     if (radioButtonView.radioRatingLowToHigh.isChecked) {
                         Collections.sort(restaurantInfoList, ratingComparator)
-                        dashboardAdapter.notifyDataSetChanged()
+                        homeAdapter.notifyDataSetChanged()
                     }
                 }
                 alterDialog.setNegativeButton("CANCEL")

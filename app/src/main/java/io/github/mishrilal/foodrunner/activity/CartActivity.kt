@@ -1,16 +1,23 @@
 package io.github.mishrilal.foodrunner.activity
 
 import android.app.AlertDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +31,7 @@ import io.github.mishrilal.foodrunner.adapter.CartRecyclerAdapter
 import io.github.mishrilal.foodrunner.adapter.ResDetailRecyclerAdapter
 import io.github.mishrilal.foodrunner.database.OrderEntity
 import io.github.mishrilal.foodrunner.database.RestaurantDatabase
+import io.github.mishrilal.foodrunner.fragment.OrderHistoryFragment
 import io.github.mishrilal.foodrunner.model.RestaurantsDetails
 import io.github.mishrilal.foodrunner.util.ConnectionManager
 import org.json.JSONArray
@@ -44,12 +52,14 @@ class CartActivity : AppCompatActivity() {
     lateinit var btnOrder: Button
     lateinit var resId: String
     lateinit var resName: String
+    var sum = 0
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        var sharedPreferences =
+        sharedPreferences =
             getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
 
         recyclerView = findViewById(R.id.recyclerView)
@@ -126,7 +136,6 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun placeOrder() {
-        var sum = 0
         for (i in 0 until orderList.size) {
             sum += orderList[i].dishPrice.toInt()
         }
@@ -187,9 +196,12 @@ class CartActivity : AppCompatActivity() {
                         if (success) {
                             ClearDBAsync(applicationContext, resId.toString()).execute().get()
                             ResDetailRecyclerAdapter.isCartEmpty = true
+
+                            createNotification()
                             val intent = Intent(this, PlaceOrderActivity::class.java)
                             startActivity(intent)
                             finishAffinity()
+
                         } else {
                             progressBarCart.visibility = View.GONE
                             rlMyCart.visibility = View.VISIBLE
@@ -282,4 +294,41 @@ class CartActivity : AppCompatActivity() {
         ResDetailRecyclerAdapter.isCartEmpty = true
         super.onStop()
     }
+
+    fun createNotification() {
+        val notificationId = sharedPreferences.getInt("notification_id", 1)
+
+        sharedPreferences.edit().putInt("notification_id", notificationId + 1).apply()
+
+        val channelId = "personal_notification"
+
+        val notificationBuilder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle("Order Placed")
+            .setContentText("Your order has been placed successfully!")
+            .setStyle(
+                NotificationCompat.BigTextStyle()
+                    .bigText("Ordered from $resName and amounting to Rs.$sum .Thank you for ordering from FoodRunner. Stay Safe!")
+            )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+
+        val notificationManagerCompat = NotificationManagerCompat.from(this)
+        notificationManagerCompat.notify(notificationId, notificationBuilder.build())
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            val name = "Order Placed"
+            val description = "Your order has been placed!"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+            val notificationChannel = NotificationChannel(channelId, name, importance)
+            notificationChannel.description = description
+            val notificationManager =
+                (getSystemService(Context.NOTIFICATION_SERVICE)) as NotificationManager
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+    }
+
+
 }

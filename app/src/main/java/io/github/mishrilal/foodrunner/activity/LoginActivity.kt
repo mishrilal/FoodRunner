@@ -29,9 +29,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var btnLogin: Button
     lateinit var progressBarLogin: ProgressBar
 
-    private val validMobileNumber = "1234567890"
-    private val validPassword = "password"
-
     var mobilePattern = "[6-9][0-9]{9}"
 
     lateinit var sharedPreferences: SharedPreferences
@@ -82,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
 
                 if (validations(etMobileNumber.text.toString(), etPassword.text.toString())) {
-
+                    progressBarLogin.visibility = View.VISIBLE
                     if (ConnectionManager().isNetworkAvailable(this@LoginActivity)) {
 
                         val queue = Volley.newRequestQueue(this@LoginActivity)
@@ -176,14 +173,15 @@ class LoginActivity : AppCompatActivity() {
                         val dialog: AlertDialog.Builder =
                             AlertDialog.Builder(this, R.style.AlertDialogStyle)
                         dialog.setTitle("Error")
+                        dialog.setIcon(R.drawable.app_logo)
                         dialog.setMessage("Internet Connection Found")
-                        dialog.setPositiveButton("Open Settings") { text, listener ->
+                        dialog.setPositiveButton("Open Settings") { _, _ ->
                             val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
                             startActivity(settingsIntent)
                             this.finish()
 
                         }
-                        dialog.setNegativeButton("Exit") { text, listener ->
+                        dialog.setNegativeButton("Exit") { _, _ ->
 
                             ActivityCompat.finishAffinity(this@LoginActivity)
                         }

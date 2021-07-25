@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var etPassword: EditText
     lateinit var etConfirmPassword: EditText
     lateinit var btnRegister: Button
-    lateinit var progressBarLogin: ProgressBar
+    lateinit var progressBarRegister: ProgressBar
     private lateinit var toolbar: Toolbar
     lateinit var sharedPreferences: SharedPreferences
 
@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         etConfirmPassword = findViewById(R.id.etConfirmPassword)
         btnRegister = findViewById(R.id.btnRegister)
-        progressBarLogin = findViewById(R.id.progressBarLogin)
+        progressBarRegister = findViewById(R.id.progressBarRegister)
 
 
         btnRegister.setOnClickListener {
@@ -81,7 +81,7 @@ class RegisterActivity : AppCompatActivity() {
             else if (etPassword.text.toString() != etConfirmPassword.text.toString())
                 etConfirmPassword.error = "Passwords doesn't match!"
             else {
-                progressBarLogin.visibility = View.VISIBLE
+                progressBarRegister.visibility = View.VISIBLE
                 sendRequest(
                     etFullName.text.toString(),
                     etMobileNumber.text.toString(),
@@ -158,14 +158,14 @@ class RegisterActivity : AppCompatActivity() {
 
                             savePreferences()
                             val intent = Intent(this@RegisterActivity, MainActivity::class.java)
-                            progressBarLogin.visibility = View.GONE
+                            progressBarRegister.visibility = View.GONE
 
                             startActivity(intent)
                             finish()
                         } else {
                             val responseMessageServer =
                                 data.getString("errorMessage")
-                            progressBarLogin.visibility = View.GONE
+                            progressBarRegister.visibility = View.GONE
                             Toast.makeText(
                                 this@RegisterActivity,
                                 responseMessageServer,
@@ -173,13 +173,13 @@ class RegisterActivity : AppCompatActivity() {
                             ).show()
                         }
                     } catch (e: Exception) {
-                        progressBarLogin.visibility = View.GONE
+                        progressBarRegister.visibility = View.GONE
                         e.printStackTrace()
                     }
                 }, Response.ErrorListener {
                     Toast.makeText(this@RegisterActivity, "Volley Error!", Toast.LENGTH_SHORT)
                         .show()
-                    progressBarLogin.visibility = View.GONE
+                    progressBarRegister.visibility = View.GONE
                 }) {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
@@ -190,7 +190,7 @@ class RegisterActivity : AppCompatActivity() {
             }
             queue.add(jsonObjectRequest)
         } else {
-            progressBarLogin.visibility = View.GONE
+            progressBarRegister.visibility = View.GONE
             val dialog: AlertDialog.Builder =
                 AlertDialog.Builder(this, R.style.AlertDialogStyle)
             dialog.setTitle("Error")
