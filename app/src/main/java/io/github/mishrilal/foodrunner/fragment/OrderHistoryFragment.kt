@@ -56,30 +56,7 @@ class OrderHistoryFragment : Fragment() {
                 Context.MODE_PRIVATE
             )
         userId = sharedPreferences.getString("user_id", null).toString()
-//        if (ConnectionManager().isNetworkAvailable(activity as Context)) {
-//            sendRequest(userId)
-//        } else {
-//            val alterDialog: AlertDialog.Builder =
-//                AlertDialog.Builder(activity, R.style.AlertDialogStyle)
-//            alterDialog.setTitle("No Internet")
-//            alterDialog.setMessage("Internet Connection can't be established!")
-//            alterDialog.setPositiveButton("Open Settings")
-//            { _, _ ->
-//                val settingsIntent = Intent(Settings.ACTION_SETTINGS)
-//                startActivity(settingsIntent)
-//            }
-//            alterDialog.setNeutralButton("Retry")
-//            {_,_ ->
-//                onResume()
-//            }
-//            alterDialog.setNegativeButton("Exit")
-//            { _, _ ->
-//                ActivityCompat.finishAffinity(activity as Activity)
-//            }
-//            alterDialog.setCancelable(false)
-//            alterDialog.create()
-//            alterDialog.show()
-//        }
+
         return view
     }
 
